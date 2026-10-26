@@ -1,11 +1,131 @@
 {
   "baseUrl": "https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/templates/personas/",
   "items": [
-    {"id":"modern-man","name":"현대 · 차분한 청년","category":"현대","gender":"male","description":"검은 머리, 흰 셔츠와 네이비 재킷. 일상과 현대물에 어울리는 성인 남성."},
-    {"id":"modern-woman","name":"현대 · 다정한 여성","category":"현대","gender":"female","description":"갈색 단발과 세이지색 카디건. 차분한 일상에 어울리는 성인 여성."},
-    {"id":"fantasy-man","name":"판타지 · 방랑 기사","category":"판타지","gender":"male","description":"금갈색 머리와 초록 망토, 가죽 장비. 여행자와 기사에 어울리는 성인 남성."},
-    {"id":"fantasy-woman","name":"판타지 · 은발 엘프","category":"판타지","gender":"female","description":"은발과 호박색 눈, 단정한 로브. 학자와 마법사에 어울리는 성인 여성."},
-    {"id":"sf-man","name":"SF · 우주 항해사","category":"SF","gender":"male","description":"짧은 머리와 밝은 회색 비행 재킷. 조종사와 탐험가에 어울리는 성인 남성."},
-    {"id":"sf-woman","name":"SF · 도시 탐험가","category":"SF","gender":"female","description":"청록빛 단발과 실용적인 재킷. 기술자와 탐험가에 어울리는 성인 여성."}
+    {
+      "id": "modern-man",
+      "name": "현대 · 차분한 청년",
+      "category": "현대",
+      "gender": "male",
+      "description": "검은 머리, 흰 셔츠와 네이비 재킷. 일상과 현대물에 어울리는 성인 남성.",
+      "species": "인간",
+      "ageGroup": "청년"
+    },
+    {
+      "id": "modern-woman",
+      "name": "현대 · 다정한 여성",
+      "category": "현대",
+      "gender": "female",
+      "description": "갈색 단발과 세이지색 카디건. 차분한 일상에 어울리는 성인 여성.",
+      "species": "인간",
+      "ageGroup": "청년"
+    },
+    {
+      "id": "fantasy-man",
+      "name": "판타지 · 방랑 기사",
+      "category": "판타지",
+      "gender": "male",
+      "description": "금갈색 머리와 초록 망토, 가죽 장비. 여행자와 기사에 어울리는 성인 남성.",
+      "species": "인간",
+      "ageGroup": "청년"
+    },
+    {
+      "id": "fantasy-woman",
+      "name": "판타지 · 은발 엘프",
+      "category": "판타지",
+      "gender": "female",
+      "description": "은발과 호박색 눈, 단정한 로브. 학자와 마법사에 어울리는 성인 여성.",
+      "species": "엘프",
+      "ageGroup": "청년"
+    },
+    {
+      "id": "sf-man",
+      "name": "SF · 우주 항해사",
+      "category": "SF",
+      "gender": "male",
+      "description": "짧은 머리와 밝은 회색 비행 재킷. 조종사와 탐험가에 어울리는 성인 남성.",
+      "species": "인간",
+      "ageGroup": "청년"
+    },
+    {
+      "id": "sf-woman",
+      "name": "SF · 도시 탐험가",
+      "category": "SF",
+      "gender": "female",
+      "description": "청록빛 단발과 실용적인 재킷. 기술자와 탐험가에 어울리는 성인 여성.",
+      "species": "인간",
+      "ageGroup": "청년"
+    },
+    {
+      "id": "human-boy",
+      "name": "인간 · 호기심 많은 소년",
+      "species": "인간",
+      "ageGroup": "아동",
+      "gender": "male",
+      "category": "현대",
+      "description": "크림색 니트와 멜빵바지, 호기심 어린 표정의 인간 소년."
+    },
+    {
+      "id": "human-girl",
+      "name": "인간 · 씩씩한 소녀",
+      "species": "인간",
+      "ageGroup": "청소년",
+      "gender": "female",
+      "category": "현대",
+      "description": "겨자색 재킷과 땋은 머리, 씩씩한 인간 소녀."
+    },
+    {
+      "id": "human-middle-man",
+      "name": "인간 · 든든한 중년",
+      "species": "인간",
+      "ageGroup": "중년",
+      "gender": "male",
+      "category": "현대",
+      "description": "새치 섞인 머리와 니트 조끼, 든든한 중년 인간 남성."
+    },
+    {
+      "id": "human-elder-woman",
+      "name": "인간 · 온화한 노년",
+      "species": "인간",
+      "ageGroup": "노년",
+      "gender": "female",
+      "category": "현대",
+      "description": "은빛 올림머리와 보라색 카디건, 온화한 노년 인간 여성."
+    },
+    {
+      "id": "elf-young-man",
+      "name": "엘프 · 숲의 청년",
+      "species": "엘프",
+      "ageGroup": "청년",
+      "gender": "male",
+      "category": "판타지",
+      "description": "구릿빛 긴 머리와 초록 망토, 숲을 걷는 청년 엘프."
+    },
+    {
+      "id": "dwarf-middle-woman",
+      "name": "드워프 · 숙련된 장인",
+      "species": "드워프",
+      "ageGroup": "중년",
+      "gender": "female",
+      "category": "판타지",
+      "description": "붉은 땋은 머리와 가죽 앞치마, 다부진 중년 드워프 여성."
+    },
+    {
+      "id": "fox-young-woman",
+      "name": "여우 수인 · 유쾌한 여행자",
+      "species": "수인",
+      "ageGroup": "청년",
+      "gender": "female",
+      "category": "판타지",
+      "description": "여우 귀와 풍성한 꼬리, 여행복 차림의 청년 여성 수인."
+    },
+    {
+      "id": "dragon-elder-man",
+      "name": "용인 · 오랜 현자",
+      "species": "용인",
+      "ageGroup": "노년",
+      "gender": "male",
+      "category": "판타지",
+      "description": "푸른 비늘과 뿔, 백발과 주름이 있는 노년 용인 현자."
+    }
   ]
 }

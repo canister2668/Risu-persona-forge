@@ -53,13 +53,21 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       const choose = async (id) => { await page.locator('[data-portrait-category="전체"]').click(); await page.locator(`[data-portrait="${id}"]`).click(); };
       const beforePreview = await page.locator('#preview2').textContent();
       await open();
-      ok(await page.locator('[data-portrait]').count() === 6, `${width}: six images available`);
+      ok(await page.locator('[data-portrait]').count() === manifest.items.length, `${width}: all images available`);
       ok(await page.evaluate(() => probe.downloads === 0 && probe.saves === 0), `${width}: gallery loads without network or writes`);
       ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth && document.querySelector('.sheet').getBoundingClientRect().right <= innerWidth), `${width}: gallery fits viewport`);
       ok(await page.evaluate(() => [...document.querySelectorAll('.portrait-tile')].every((tile) => tile.querySelector('b').getBoundingClientRect().bottom <= tile.getBoundingClientRect().bottom + 1)), `${width}: portrait names are not clipped`);
       ok(await page.evaluate(() => { const r = document.querySelector('.portrait-detail img').getBoundingClientRect(); return Math.abs(r.width / r.height - 13 / 19) < 0.02; }), `${width}: detail preview keeps portrait aspect ratio`);
       await page.locator('[data-portrait-category="판타지"]').click();
-      ok(await page.locator('[data-portrait]:visible').count() === 2, `${width}: category filter`);
+      ok(await page.locator('[data-portrait]:visible').count() === manifest.items.filter(p => p.category === '판타지').length, `${width}: category filter`);
+      await page.locator('[data-portrait-category="전체"]').click();
+      await page.locator('#portrait-species').selectOption('인간');
+      await page.locator('#portrait-age').selectOption('노년');
+      ok(await page.locator('[data-portrait]:visible').count() === 1, `${width}: species and age intersect`);
+      await page.locator('#portrait-species').selectOption('엘프');
+      ok(await page.locator('[data-portrait]:visible').count() === 0 && await page.locator('#portrait-use').isDisabled(), `${width}: empty filters prevent apply`);
+      await page.locator('#portrait-species').selectOption('인간');
+      ok(await page.locator('#portrait-use').isEnabled(), `${width}: recovering filters enables apply`);
       await page.keyboard.press('Escape');
       ok(await page.locator('.sheet').count() === 0 && await page.evaluate(() => document.activeElement.id === 'ava'), `${width}: Escape restores avatar focus`);
       ok(await page.locator('#preview2').textContent() === beforePreview, `${width}: cancel preserves text`);
@@ -90,6 +98,10 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       await page.locator('#portrait-status.error').waitFor();
       ok(await page.evaluate(() => probe.saves) === savesBefore, `${width}: failed asset write preserves draft`);
       await page.locator('#portrait-cancel').click();
+      await open(); await choose('dragon-elder-man');
+      await page.evaluate(() => { probe.mode = 'ok'; }); await page.locator('#portrait-use').click();
+      await page.locator('.sheet').waitFor({ state: 'detached' });
+      ok(await page.evaluate(() => probe.saves) === savesBefore + 1, `${width}: added portrait downloads and saves`);
       ok(errors.length === 0, `${width}: no uncaught browser errors`);
       await context.close();
     }
