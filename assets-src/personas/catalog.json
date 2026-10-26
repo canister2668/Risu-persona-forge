@@ -126,6 +126,69 @@
       "gender": "male",
       "category": "판타지",
       "description": "푸른 비늘과 뿔, 백발과 주름이 있는 노년 용인 현자."
+    },
+    {
+      "id": "human-child-girl",
+      "name": "인간 · 해맑은 소녀",
+      "species": "인간",
+      "ageGroup": "아동",
+      "gender": "female",
+      "category": "현대",
+      "description": "밤색 단발과 크림색 니트, 멜빵치마 차림의 해맑은 소녀."
+    },
+    {
+      "id": "human-teen-boy",
+      "name": "인간 · 씩씩한 소년",
+      "species": "인간",
+      "ageGroup": "청소년",
+      "gender": "male",
+      "category": "현대",
+      "description": "짧은 흑발과 올리브색 재킷, 씩씩한 청소년 남성."
+    },
+    {
+      "id": "human-middle-woman",
+      "name": "인간 · 믿음직한 중년",
+      "species": "인간",
+      "ageGroup": "중년",
+      "gender": "female",
+      "category": "현대",
+      "description": "새치 섞인 갈색 머리와 니트 조끼, 차분한 중년 여성."
+    },
+    {
+      "id": "human-elder-man",
+      "name": "인간 · 다정한 노신사",
+      "species": "인간",
+      "ageGroup": "노년",
+      "gender": "male",
+      "category": "현대",
+      "description": "백발과 깊은 주름, 카디건 차림의 온화한 노년 남성."
+    },
+    {
+      "id": "dwarf-middle-man",
+      "name": "드워프 · 노련한 장인",
+      "species": "드워프",
+      "ageGroup": "중년",
+      "gender": "male",
+      "category": "판타지",
+      "description": "붉은 수염과 가죽 앞치마, 다부진 중년 드워프 남성."
+    },
+    {
+      "id": "fox-young-man",
+      "name": "여우 수인 · 느긋한 여행자",
+      "species": "수인",
+      "ageGroup": "청년",
+      "gender": "male",
+      "category": "판타지",
+      "description": "여우 귀와 풍성한 꼬리, 붉은 여행 코트 차림의 청년 남성 수인."
+    },
+    {
+      "id": "dragon-elder-woman",
+      "name": "용인 · 지혜로운 현자",
+      "species": "용인",
+      "ageGroup": "노년",
+      "gender": "female",
+      "category": "판타지",
+      "description": "푸른 비늘과 뿔, 은발과 주름이 있는 노년 용인 여성 현자."
     }
   ]
 }

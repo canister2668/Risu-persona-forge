@@ -63,7 +63,7 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       await page.locator('[data-portrait-category="전체"]').click();
       await page.locator('#portrait-species').selectOption('인간');
       await page.locator('#portrait-age').selectOption('노년');
-      ok(await page.locator('[data-portrait]:visible').count() === 1, `${width}: species and age intersect`);
+      ok(await page.locator('[data-portrait]:visible').count() === 2, `${width}: species and age intersect with both genders`);
       await page.locator('#portrait-species').selectOption('엘프');
       ok(await page.locator('[data-portrait]:visible').count() === 0 && await page.locator('#portrait-use').isDisabled(), `${width}: empty filters prevent apply`);
       await page.locator('#portrait-species').selectOption('인간');
@@ -98,13 +98,20 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       await page.locator('#portrait-status.error').waitFor();
       ok(await page.evaluate(() => probe.saves) === savesBefore, `${width}: failed asset write preserves draft`);
       await page.locator('#portrait-cancel').click();
-      await open(); await choose('dragon-elder-man');
+      await open(); await choose('dragon-elder-woman');
       await page.evaluate(() => { probe.mode = 'ok'; }); await page.locator('#portrait-use').click();
       await page.locator('.sheet').waitFor({ state: 'detached' });
       ok(await page.evaluate(() => probe.saves) === savesBefore + 1, `${width}: added portrait downloads and saves`);
       ok(errors.length === 0, `${width}: no uncaught browser errors`);
       await context.close();
     }
+    const groups = new Map();
+    for (const item of manifest.items) {
+      const key = item.species + '/' + item.ageGroup;
+      if (!groups.has(key)) groups.set(key, new Set());
+      groups.get(key).add(item.gender);
+    }
+    for (const [key, genders] of groups) ok(genders.has('male') && genders.has('female'), key + ': both gender counterparts present');
     for (const item of manifest.items) {
       const bytes = fs.readFileSync(path.join(ROOT, 'templates/personas', item.file));
       ok(bytes.length === item.bytes && crypto.createHash('sha256').update(bytes).digest('hex') === item.sha256, item.id + ': manifest matches image');

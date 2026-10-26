@@ -127,6 +127,69 @@
         1516
       ],
       "source": "assets-src/personas/dragon-elder-man.png"
+    },
+    {
+      "id": "human-child-girl",
+      "prompt": "Create a wholesome character illustration for a fantasy storybook cast library. One character: A human girl age 11, clearly childlike round face and proportions, chestnut bob hair with a tiny blue ribbon, cream knit sweater and denim pinafore, cheerful curious smile, sunny village garden. Portrait canvas exactly 832x1216 pixels. Polished Japanese/Korean animation illustration with refined line art, soft cel shading, realistic fabric detail and muted painterly background, warm natural daylight. Head to waist portrait with ample top margin, complete hair, ears and horns safely visible, face in upper third, relaxed upright pose looking toward viewer. Age-appropriate everyday clothing and clear age-specific facial features. One original character only, no writing, logos, border or collage.",
+      "nativeSize": [
+        1038,
+        1516
+      ],
+      "source": "assets-src/personas/human-child-girl.png"
+    },
+    {
+      "id": "human-teen-boy",
+      "prompt": "Create a wholesome character illustration for a fantasy storybook cast library. One character: A human teenage boy age 16, youthful face, short dark hair, olive hooded jacket over plain cream T-shirt and practical jeans, warm confident smile, quiet town park. Portrait canvas exactly 832x1216 pixels. Polished Japanese/Korean animation illustration with refined line art, soft cel shading, realistic fabric detail and muted painterly background, warm natural daylight. Head to waist portrait with ample top margin, complete hair, ears and horns safely visible, face in upper third, relaxed upright pose looking toward viewer. Age-appropriate everyday clothing and clear age-specific facial features. One original character only, no writing, logos, border or collage.",
+      "nativeSize": [
+        1038,
+        1516
+      ],
+      "source": "assets-src/personas/human-teen-boy.png"
+    },
+    {
+      "id": "human-middle-woman",
+      "prompt": "Create a wholesome character illustration for a fantasy storybook cast library. One character: A human woman age 48, visibly mature broad face with gentle smile lines and subtle wrinkles, shoulder-length brown hair with silver streaks, warm brown knitted vest over ivory high-neck blouse, composed dependable expression, cozy artisan workshop. Portrait canvas exactly 832x1216 pixels. Polished Japanese/Korean animation illustration with refined line art, soft cel shading, realistic fabric detail and muted painterly background, warm natural daylight. Head to waist portrait with ample top margin, complete hair, ears and horns safely visible, face in upper third, relaxed upright pose looking toward viewer. Age-appropriate everyday clothing and clear age-specific facial features. One original character only, no writing, logos, border or collage.",
+      "nativeSize": [
+        1037,
+        1516
+      ],
+      "source": "assets-src/personas/human-middle-woman.png"
+    },
+    {
+      "id": "human-elder-man",
+      "prompt": "Create a wholesome character illustration for a fantasy storybook cast library. One character: A human elderly man age 74, white swept-back hair and neatly trimmed white beard, clearly visible wrinkles and kind eyes, muted lavender-gray cardigan over ivory shirt, gentle dignified smile, garden veranda. Portrait canvas exactly 832x1216 pixels. Polished Japanese/Korean animation illustration with refined line art, soft cel shading, realistic fabric detail and muted painterly background, warm natural daylight. Head to waist portrait with ample top margin, complete hair, ears and horns safely visible, face in upper third, relaxed upright pose looking toward viewer. Age-appropriate everyday clothing and clear age-specific facial features. One original character only, no writing, logos, border or collage.",
+      "nativeSize": [
+        1038,
+        1516
+      ],
+      "source": "assets-src/personas/human-elder-man.png"
+    },
+    {
+      "id": "dwarf-middle-man",
+      "prompt": "Create a wholesome character illustration for a fantasy storybook cast library. One character: A middle-aged male dwarf apparent age 50, distinctly short stocky powerful proportions, thick auburn beard in one tidy braid, auburn hair, broad nose and mature facial lines, leather apron over teal work tunic, confident kindly expression, stone workshop. Portrait canvas exactly 832x1216 pixels. Polished Japanese/Korean animation illustration with refined line art, soft cel shading, realistic fabric detail and muted painterly background, warm natural daylight. Head to waist portrait with ample top margin, complete hair, ears and horns safely visible, face in upper third, relaxed upright pose looking toward viewer. Age-appropriate everyday clothing and clear age-specific facial features. One original character only, no writing, logos, border or collage.",
+      "nativeSize": [
+        1037,
+        1516
+      ],
+      "source": "assets-src/personas/dwarf-middle-man.png"
+    },
+    {
+      "id": "fox-young-man",
+      "prompt": "Create one polished Japanese/Korean anime storybook character portrait, vertical exactly 832x1216. An adult male fox beastfolk age 27, warm masculine human face, amber eyes and tousled russet hair. EXACTLY TWO EARS TOTAL: one pair of fox ears on top of his head. The side-of-head areas where human ears would be are completely concealed behind thick long locks of russet hair reaching his jaw on both sides. A single fluffy russet fox tail visible behind his hip. Cream high-collar travel tunic, rust-red traveling coat, relaxed friendly expression, arms relaxed. Head to waist with generous space above both fox ear tips. Warm autumn village background, soft painterly details, refined line art and elegant cel shading. One original character, no text, no logo, no panels.",
+      "nativeSize": [
+        1038,
+        1516
+      ],
+      "source": "assets-src/personas/fox-young-man.png"
+    },
+    {
+      "id": "dragon-elder-woman",
+      "prompt": "Create a wholesome character illustration for a fantasy storybook cast library. One character: An elderly female dragonkin sage apparent age 75, clearly elderly wise feminine face with visible wrinkles and smile lines, subtle slate-blue scales at temples and neck, two small curved swept-back horns, long silver-white hair loosely gathered behind head, modest high-collar indigo scholar robes, dignified warm expression, ancient courtyard. Portrait canvas exactly 832x1216 pixels. Polished Japanese/Korean animation illustration with refined line art, soft cel shading, realistic fabric detail and muted painterly background, warm natural daylight. Head to waist portrait with ample top margin, complete hair, ears and horns safely visible, face in upper third, relaxed upright pose looking toward viewer. Age-appropriate everyday clothing and clear age-specific facial features. One original character only, no writing, logos, border or collage.",
+      "nativeSize": [
+        1037,
+        1517
+      ],
+      "source": "assets-src/personas/dragon-elder-woman.png"
     }
   ]
 }
