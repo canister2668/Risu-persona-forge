@@ -1,6 +1,6 @@
 //@name persona_forge
 //@api 3.0
-//@version 0.2.11
+//@version 0.2.12
 //@display-name 페르소나 공방
 //@description 성별·시대·나이·종족 같은 토글과 보조 모델로 페르소나를 즉석에서 짜고, 보관함(모듈 로어북)·페르소나 목록·채팅 연결·이미지를 한곳에서 관리합니다.
 
@@ -76,7 +76,7 @@ const OPT = {
   ],
   origin: [['native', '토박이', null], ['outsider', '다른 세계·시대', null], ['unknown', '불명', null]],
   race: [
-    ['human', '인간', null], ['beast', '수인', 'beastfolk'], ['elf', '엘프·요정', 'elf / fairy'], ['monster', '요괴·이형', 'youkai / monster'],
+    ['human', '인간', null], ['dwarf', '드워프', 'dwarf'], ['dragon', '용인', 'dragonkin'], ['beast', '수인', 'beastfolk'], ['elf', '엘프·요정', 'elf / fairy'], ['monster', '요괴·이형', 'youkai / monster'],
     ['artificial', '인조인간·AI', 'android / artificial being'], ['divine', '신적 존재', 'divine being'], ['unknown', '불명', 'unknown'], ['custom', '직접 기입', null],
   ],
   canonMode: [['faithful', '원작 그대로', 'follows the original work'], ['au', '원작 바탕 변형', 'reimagined from the original work']],
@@ -89,7 +89,7 @@ const TEXT_FIELDS = [
   ['skills', '스킬·능력', 'Skills'],
 ];
 const BLANK = {
-  id: '', label: '', name: '', icon: '', personaId: '',
+  id: '', label: '', name: '', icon: '', personaId: '', portraitMode: '', portraitId: '',
   canon: '', canonMode: 'faithful',
   gender: 'none', ageMode: 'input', age: '', era: 'world', origin: 'native', race: 'human', raceText: '', job: '', build: 'omit',
   basic: '', look: '', personality: '', past: '', skills: '', extra: '', lang: '',
@@ -376,6 +376,7 @@ function flushMirror() {
 }
 function closeForge() { closeSheet(); Risuai.hideContainer(); if (settings.autoMirror) flushMirror(); }
 async function saveProfile(p) {
+  await ensurePortrait(p);
   await readProfiles();
   p.id = p.id || uid(); p.updated = Date.now();
   const copy = clone(p), i = profileCache.findIndex((x) => x.id === p.id);
@@ -407,6 +408,7 @@ async function currentChatKey() {
   return cur ? (cur.chat.id || `${cur.ci}:${cur.chi}:${cur.chat.name || ''}`) : null;
 }
 async function savePersona(p, { overwrite }) {
+  await ensurePortrait(p);
   const db = await readPersonas();
   const personas = db.personas || [];
   let i = overwrite && p.personaId ? personas.findIndex((x) => x.id === p.personaId) : -1;
@@ -941,6 +943,7 @@ function identityCard(d) {
     <label class="inputlabel"><span>세계관 템플릿</span><select id="tplset" aria-label="세계관 세트">${Object.entries(TPL.sets).map(([k, v]) => `<option value="${k}" ${setOf(d) === k ? 'selected' : ''}>${v.label}</option>`).join('')}</select></label>
     <div><span class="control-label" id="langlabel">시트 언어</span><div class="segc" id="langseg" role="group" aria-labelledby="langlabel"><button type="button" data-lang="en" class="${langOf(d) === 'en' ? 'on' : ''}">English</button><button type="button" data-lang="ko" class="${langOf(d) === 'ko' ? 'on' : ''}">한국어</button></div></div>
    </div>
+  <div class="field"><div class="lab">기본 이미지 템플릿</div><div class="row" style="flex-wrap:wrap"><button type="button" class="btn" id="portrait-auto">토글에 따라 자동 선택</button><button type="button" class="btn" id="portrait-templates">기본 템플릿에서 고르기</button><button type="button" class="btn" id="portrait-custom">커스텀 이미지</button></div><p class="hint" id="portrait-auto-status">${esc(portraitStatus(d))}</p><p class="hint">자동 이미지는 저장·적용할 때 GitHub에서 내려받습니다. 수인 템플릿은 여우형입니다.</p></div>
   <div class="badges">${state}${linked ? `<span class="badge acc">페르소나 「${esc(linked.name)}」 수정 중</span>` : ''}${d.id ? '<button type="button" class="btn ghost" id="asnew">새 버전으로 분리</button>' : ''}${TEXT_HAS(d) ? `<button type="button" class="btn ghost" id="trfields">칸 내용을 ${langOf(d) === 'ko' ? '한국어' : '영어'}로 번역</button>` : ''}</div>
   <div class="menu" id="avamenu" hidden>
    <button type="button" id="iconlibrary">기본 이미지에서 고르기</button>
@@ -1105,6 +1108,7 @@ async function fillChatState() {
 }
 
 async function render() {
+  syncPortrait(ui.draft);
   const d = ui.draft;
   ui.wide = window.innerWidth >= 1024;
   const body = ui.tab === 'edit' ? editTab(d) : ui.tab === 'vault' ? vaultTab() : ui.tab === 'persona' ? personaTab() : applyTab();
@@ -1162,6 +1166,8 @@ function readForm() {
   const w = document.getElementById('useworld'); if (w) settings.useWorld = w.checked;
 }
 function refreshLive() {
+  syncPortrait(ui.draft);
+  const ps = document.getElementById('portrait-auto-status'); if (ps) ps.textContent = portraitStatus(ui.draft);
   const txt = composePersona(ui.draft);
   for (const id of ['preview', 'preview2']) { const pv = document.getElementById(id); if (pv) pv.textContent = txt; }
   document.querySelectorAll('.steps [data-step]').forEach((b, n) => { const filled = stepFilled(ui.draft, b.dataset.step); b.classList.toggle('done', filled); const num = b.querySelector('.num'); if (num) num.textContent = filled ? '✓' : String(n + 1).padStart(2, '0'); });
@@ -1173,7 +1179,8 @@ function refreshLive() {
   const tf = document.getElementById('trfields'); if (tf) tf.hidden = !TEXT_HAS(ui.draft);
   if (ui.trText && ui.trFor !== snapshot()) { ui.trText = ''; const tb = document.getElementById('trbox'); if (tb) tb.hidden = true; }
 }
-async function setIcon(path) {
+async function setIcon(path, manual = true) {
+  if (manual) { ui.draft.portraitMode = 'manual'; ui.draft.portraitId = ''; }
   ui.draft.icon = path || '';
   if (ui.iconUrl) URL.revokeObjectURL(ui.iconUrl);
   ui.iconUrl = await imageUrl(ui.draft.icon);
@@ -1186,7 +1193,8 @@ async function loadDraft(p) {
   ui.step = 'basic';
   ui.canonOpen = undefined;
   ui.splitUndo = null; ui.source = ''; ui.trText = '';
-  await setIcon(ui.draft.icon);
+  await setIcon(ui.draft.icon, false);
+  syncPortrait(ui.draft);
   ui.clean = snapshot();
   ui.tab = 'edit';
 }
@@ -1235,6 +1243,57 @@ function closeSheet() {
   wrap?.remove();
   const app = document.querySelector('.app'); if (app) app.inert = false;
   if (returnTo?.isConnected) returnTo.focus({ preventScroll: true });
+}
+
+function portraitMode(p) { return p.portraitMode || (p.icon ? 'manual' : 'auto'); }
+function portraitAge(p) {
+  if (p.ageMode !== 'input') return '청년';
+  const age = clean(p.age);
+  for (const group of ['아동', '청소년', '청년', '중년', '노년']) if (age.includes(group)) return group;
+  const n = age.match(/\d+/);
+  if (!n) return '청년';
+  const v = Number(n[0]);
+  return v < 13 ? '아동' : v < 20 ? '청소년' : v < 40 ? '청년' : v < 65 ? '중년' : '노년';
+}
+function matchPortrait(p) {
+  const species = ({human:'인간',elf:'엘프',beast:'수인',dwarf:'드워프',dragon:'용인'})[p.race] || (p.race === 'custom' ? ({'드워프':'드워프','용인':'용인','엘프':'엘프','인간':'인간','수인':'수인','여우 수인':'수인'})[clean(p.raceText)] : '');
+  const matches = PORTRAITS.filter(x => x.gender === p.gender && x.species === species && x.ageGroup === portraitAge(p));
+  const category = p.era === 'future' ? 'SF' : ['modern','c20'].includes(p.era) ? '현대' : ['medieval','ancient','earlymodern','prehistoric'].includes(p.era) ? '판타지' : ({fantasy:'판타지',murim:'판타지',sf:'SF'})[setOf(p)] || '현대';
+  return matches.find(x => x.category === category) || matches[0];
+}
+function syncPortrait(p) {
+  if (portraitMode(p) !== 'auto') return;
+  p.portraitMode = 'auto';
+  const selected = matchPortrait(p), id = selected?.id || '';
+  if (p.portraitId !== id) { p.portraitId = id; p.icon = ''; }
+  if (p === ui.draft) {
+    if (!p.icon) {
+      if (ui.iconUrl?.startsWith('blob:')) URL.revokeObjectURL(ui.iconUrl);
+      ui.iconUrl = selected?.thumb || '';
+    }
+    const ava = document.getElementById('ava');
+    if (ava) { ava.style.backgroundImage = ui.iconUrl ? `url("${ui.iconUrl}")` : ''; ava.innerHTML = (ui.iconUrl ? '' : icon('user')) + '<span class="edit">이미지 변경</span>'; }
+  }
+}
+function portraitStatus(p) {
+  if (portraitMode(p) !== 'auto') return '직접 선택 · 토글을 바꿔도 이미지를 유지합니다.';
+  const selected = matchPortrait(p);
+  return selected ? '자동 선택 · ' + selected.name + ' · ' + selected.ageGroup + (p.ageMode !== 'input' || !clean(p.age) ? ' (나이 미입력 시 청년 기준)' : '') : '자동 선택 · 맞는 이미지가 없습니다. 성별·종족·나이를 바꾸거나 직접 골라 주세요.';
+}
+async function ensurePortrait(p) {
+  if (portraitMode(p) !== 'auto') return;
+  syncPortrait(p);
+  const selected = PORTRAITS.find(x => x.id === p.portraitId);
+  if (!selected || p.icon) return;
+  const id = p.portraitId;
+  const current = () => portraitMode(p) === 'auto' && p.portraitId === id && matchPortrait(p)?.id === id;
+  const bytes = await fetchPortrait(selected);
+  if (!current()) throw new Error('이미지 선택이 바뀌었습니다. 다시 저장해 주세요.');
+  const path = await Risuai.saveAsset(bytes);
+  if (!path) throw new Error('이미지를 저장하지 못했습니다. 다시 시도해 주세요.');
+  if (!current()) throw new Error('이미지 선택이 바뀌었습니다. 다시 저장해 주세요.');
+  p.icon = path;
+  if (p === ui.draft) { if (ui.iconUrl?.startsWith('blob:')) URL.revokeObjectURL(ui.iconUrl); ui.iconUrl = await imageUrl(path); }
 }
 
 function openPortraitLibrary() {
@@ -1294,7 +1353,7 @@ function openPortraitLibrary() {
         if (!url) throw new Error('저장한 이미지를 열지 못했습니다. 다시 시도해 주세요.');
         if (!current()) { URL.revokeObjectURL(url); return; }
         if (ui.iconUrl) URL.revokeObjectURL(ui.iconUrl);
-        draft.icon = path; ui.iconUrl = url;
+        draft.portraitMode = 'manual'; draft.portraitId = portrait.id; draft.icon = path; ui.iconUrl = url;
         closeSheet(); await render(); toast('「' + portrait.name + '」 이미지를 초안에 넣었습니다. 보관함에 저장하거나 채팅에 적용해 주세요.');
       } catch (e) {
         if (wrap.isConnected) { status.textContent = e?.message || String(e); status.classList.add('error'); }
@@ -1446,6 +1505,9 @@ function bind() {
   if (menu) document.querySelector('.scroll').addEventListener('click', (e) => { if (!menu.hidden && !menu.contains(e.target)) { menu.hidden = true; $('ava').setAttribute('aria-expanded', 'false'); } });
   if (menu) menu.onkeydown = (e) => { if (e.key === 'Escape') { menu.hidden = true; $('ava').setAttribute('aria-expanded', 'false'); $('ava').focus(); } };
   if ($('canoncard')) $('canoncard').ontoggle = (e) => { ui.canonOpen = e.target.open; };
+  on('#portrait-templates', () => openPortraitLibrary());
+  on('#portrait-auto', () => act(async () => { readForm(); ui.draft.portraitMode = 'auto'; ui.draft.portraitId = ''; ui.draft.icon = ''; syncPortrait(ui.draft); await render(); }));
+  on('#portrait-custom', () => $('iconfile').click());
   on('#iconlibrary', () => { menu.hidden = true; $('ava').setAttribute('aria-expanded', 'false'); $('ava').focus(); openPortraitLibrary(); });
   if ($('iconfile')) $('iconfile').onchange = (ev) => act(async () => {
     const f = ev.target.files?.[0]; if (!f) return;

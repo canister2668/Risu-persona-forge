@@ -27,6 +27,7 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       await page.goto('http://localhost/');
       await page.evaluate(() => {
         const assets = new Map(), storage = new Map();
+        window.testStorage = storage;
         window.probe = { downloads: 0, saves: 0, writes: 0, mode: 'ok' };
         window.Risuai = {
           pluginStorage: { getItem: async (key) => storage.get(key), setItem: async (key, value) => { probe.writes++; storage.set(key, value); } },
@@ -102,6 +103,50 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       await page.evaluate(() => { probe.mode = 'ok'; }); await page.locator('#portrait-use').click();
       await page.locator('.sheet').waitFor({ state: 'detached' });
       ok(await page.evaluate(() => probe.saves) === savesBefore + 1, `${width}: added portrait downloads and saves`);
+      const savedManual = await page.locator('#ava').getAttribute('style');
+      await page.locator('[data-seg="gender"] [data-v="female"]').click();
+      ok(await page.locator('#ava').getAttribute('style') === savedManual, `${width}: manually selected image survives toggles`);
+      await page.locator('#portrait-auto').click();
+      await page.locator('[data-f="age"]').fill('10');
+      ok((await page.locator('#portrait-auto-status').textContent()).includes('해맑은 소녀'), `${width}: child female auto match`);
+      await page.evaluate(() => { probe.mode = 'fail'; });
+      const writesBeforeAuto = await page.evaluate(() => probe.writes);
+      await page.locator('#tovault').click();
+      await page.waitForFunction(() => !document.querySelector('#tovault').disabled);
+      ok(await page.evaluate(() => probe.writes) === writesBeforeAuto, `${width}: failed auto download does not persist profile`);
+      await page.evaluate(() => { probe.mode = 'delay'; window.releaseDownload = null; });
+      await page.locator('#tovault').click();
+      await page.waitForFunction(() => !!window.releaseDownload);
+      await page.locator('[data-seg="gender"] [data-v="male"]').click();
+      await page.evaluate(() => { probe.mode = 'ok'; window.releaseDownload(); });
+      await page.waitForFunction(() => !document.querySelector('#tovault').disabled);
+      ok(await page.evaluate(() => probe.writes) === writesBeforeAuto, `${width}: auto selection change during download prevents stale profile write`);
+      await page.locator('[data-seg="gender"] [data-v="female"]').click();
+      const beforeAuto = await page.evaluate(() => probe.downloads);
+      await page.locator('[data-f="age"]').fill('74');
+      ok((await page.locator('#portrait-auto-status').textContent()).includes('온화한 노년'), `${width}: age changes auto portrait`);
+      await page.locator('[data-sel="race"]').selectOption('dragon');
+      ok((await page.locator('#portrait-auto-status').textContent()).includes('지혜로운 현자'), `${width}: species changes auto portrait`);
+      ok(await page.evaluate(() => probe.downloads) === beforeAuto, `${width}: auto preview needs no download`);
+      await page.locator('#tovault').click();
+      await page.waitForFunction(() => [...testStorage.values()].some(x => Array.isArray(x) && x.some(p => p.portraitMode === 'auto' && p.portraitId === 'dragon-elder-woman' && p.icon)));
+      ok(true, `${width}: saving resolves auto image to persistent asset`);
+      await page.locator('[data-seg="gender"] [data-v="male"]').click();
+      ok((await page.locator('#portrait-auto-status').textContent()).includes('오랜 현자'), `${width}: auto mode remains active after save`);
+      await page.locator('[data-f="age"]').fill('10');
+      ok((await page.locator('#portrait-auto-status').textContent()).includes('맞는 이미지가 없습니다'), `${width}: unavailable combination does not choose wrong age`);
+      await page.locator('[data-sel="race"]').selectOption('human');
+      await page.locator('[data-f="age"]').fill('25');
+      await page.locator('[data-sel="era"]').selectOption('future');
+      ok((await page.locator('#portrait-auto-status').textContent()).includes('우주 항해사'), `${width}: future era selects SF portrait`);
+      await page.locator('#iconfile').setInputFiles({ name: 'custom.webp', mimeType: 'image/webp', buffer: fs.readFileSync(path.join(ROOT, 'templates/personas', manifest.items[0].file)) });
+      await page.waitForFunction(() => document.querySelector('#portrait-auto-status')?.textContent.includes('직접 선택'));
+      const customIcon = await page.locator('#ava').getAttribute('style');
+      await page.locator('[data-seg="gender"] [data-v="female"]').click();
+      ok(await page.locator('#ava').getAttribute('style') === customIcon, `${width}: uploaded custom image survives toggles`);
+      await page.locator('#portrait-templates').click();
+      ok(await page.locator('.portrait-sheet').count() === 1, `${width}: direct template chooser opens`);
+      await page.keyboard.press('Escape');
       ok(errors.length === 0, `${width}: no uncaught browser errors`);
       await context.close();
     }
