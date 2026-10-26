@@ -2,7 +2,7 @@
 
 RisuAI API v3 플러그인. 페르소나 작성, 보관함, 채팅 연결과 이미지 선택을 한곳에서 관리합니다.
 
-## 기본 페르소나 이미지 · 0.2.12
+## 기본 페르소나 이미지 · 0.3.0
 
 기본 정보 상단의 **기본 이미지 템플릿**에서 자동 선택·직접 선택·커스텀 업로드를 사용할 수 있습니다.
 
@@ -58,3 +58,12 @@ node tests/gallery.cjs
 브라우저 시험은 가짜 Risu 호스트를 사용합니다. 1280·390·320px에서 목록, 분류, 선택, 취소, 실패 후 재시도, 해시 불일치 거부, 기존 내용 보존을 검사하며 실제 모델이나 라이브 데이터에 접근하지 않습니다. 실제 Risu API 확인은 별도로 RISU-LAB에서 수행합니다.
 
 로컬 백업·배포 스크립트·LAB 시험 결과는 공개 저장소에 포함하지 않습니다.
+
+## 업데이트 서버와 릴리즈
+
+- 설치 파일: https://github.com/canister2668/Risu-persona-forge/releases/latest
+- 공식 Risu 업데이트 주소: https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/persona-forge.plugin.js
+- 버전/해시 매니페스트: https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/update/latest.json
+- 공방 설정 → 업데이트에서 최신 버전을 확인하고 SHA-256 검증된 설치 파일을 받을 수 있습니다. 실제 설치는 RisuAI 설정 → 플러그인의 업데이트 또는 파일 가져오기를 사용합니다.
+- 원본 이미지는 GitHub `templates/personas/`에서 필요할 때만 받습니다.
+- 릴리즈 절차: 버전 헤더와 RELEASE_VERSION을 함께 올리고 `python3 scripts/build-release.py`, `node tests/update.cjs`, `node tests/gallery.cjs`를 실행합니다. 같은 커밋을 main과 v버전 태그로 게시하고 플러그인·소스 ZIP·매니페스트를 GitHub Release에 첨부합니다.

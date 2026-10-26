@@ -1,6 +1,7 @@
 //@name persona_forge
 //@api 3.0
-//@version 0.2.12
+//@version 0.3.0
+//@update-url https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/persona-forge.plugin.js
 //@display-name 페르소나 공방
 //@description 성별·시대·나이·종족 같은 토글과 보조 모델로 페르소나를 즉석에서 짜고, 보관함(모듈 로어북)·페르소나 목록·채팅 연결·이미지를 한곳에서 관리합니다.
 
@@ -20,6 +21,40 @@
  *  - Aux generation uses runLLMModel mode 'otherAx' (the user's auxiliary model), like ITEMX / Unstick.
  *  - API only, no core patches.
  */
+
+const RELEASE_VERSION = '0.3.0';
+const UPDATE_BASE = 'https://raw.githubusercontent.com/canister2668/Risu-persona-forge/';
+const UPDATE_MANIFEST = UPDATE_BASE + 'main/update/latest.json';
+const newerVersion = (a, b) => { const aa = a.split('.').map(Number), bb = b.split('.').map(Number); for (let i=0;i<3;i++) { if (aa[i] !== bb[i]) return aa[i] > bb[i]; } return false; };
+async function updateFetch(url) {
+  return Promise.race([Risuai.nativeFetch(url, {method:'GET'}), new Promise((_,reject)=>setTimeout(()=>reject(new Error('업데이트 서버 응답 시간이 초과되었습니다.')),30000))]);
+}
+async function checkRelease() {
+  const response = await updateFetch(UPDATE_MANIFEST + '?t=' + Date.now());
+  if (!response.ok) throw new Error('업데이트 정보를 받지 못했습니다.');
+  const m = await response.json();
+  if (m.name !== 'persona_forge' || !/^\d+\.\d+\.\d+$/.test(m.version) || !/^[a-f0-9]{64}$/.test(m.sha256) || !Number.isInteger(m.bytes) || m.bytes < 1 || m.bytes > 4000000 || m.url !== UPDATE_BASE + 'v' + m.version + '/persona-forge.plugin.js') throw new Error('업데이트 정보가 올바르지 않습니다.');
+  return m;
+}
+async function downloadRelease(m) {
+  const response = await updateFetch(m.url);
+  if (!response.ok) throw new Error('업데이트 파일 다운로드에 실패했습니다.');
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
+  const script = new TextDecoder().decode(bytes);
+  if (bytes.length !== m.bytes || hash !== m.sha256 || !script.startsWith('//@name persona_forge\n//@api 3.0\n//@version ' + m.version + '\n')) throw new Error('업데이트 파일 검증에 실패했습니다.');
+  const url = URL.createObjectURL(new Blob([bytes],{type:'text/javascript'}));
+  const a=document.createElement('a'); a.href=url; a.download='persona-forge.plugin.js'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),60000);
+}
+function openUpdates() {
+  openSheet(`<h3>페르소나 공방 업데이트</h3><p>현재 버전 ${RELEASE_VERSION}</p><p class="hint">GitHub에서 최신 버전을 확인합니다. RisuAI 설정 → 플러그인의 업데이트 버튼으로 설치하거나, 받은 파일을 가져오세요. 저장하지 않은 초안은 먼저 보관함에 저장해 주세요.</p><p id="update-status" role="status">확인 버튼을 눌러 주세요.</p><div class="foot"><button class="btn" id="update-close">닫기</button><button class="btn" id="update-check">업데이트 확인</button><button class="btn pri" id="update-download" disabled>파일 받기</button></div>`,w=>{
+    let release=null;
+    const status=w.querySelector('#update-status'),check=w.querySelector('#update-check'),download=w.querySelector('#update-download');
+    w.querySelector('#update-close').onclick=closeSheet;
+    check.onclick=async()=>{check.disabled=true;download.disabled=true;release=null;status.textContent='확인 중…';try{const m=await checkRelease();if(!w.isConnected)return;release=m;status.textContent=newerVersion(m.version,RELEASE_VERSION)?'새 버전 '+m.version+'을 사용할 수 있습니다.':'현재 최신 버전입니다. ('+m.version+')';download.disabled=!newerVersion(m.version,RELEASE_VERSION);}catch(e){status.textContent=e.message;}finally{check.disabled=false;}};
+    download.onclick=async()=>{if(!release)return;download.disabled=true;status.textContent='파일 검증 중…';try{await downloadRelease(release);status.textContent='파일을 받았습니다. RisuAI 플러그인 설정에서 가져와 업데이트하세요.';}catch(e){status.textContent=e.message;}finally{download.disabled=false;}};
+  });
+}
 
 const MARK = '[User persona override]';
 const STORE_KEY = 'persona_forge:v1';
@@ -1448,13 +1483,14 @@ async function openPersonaPicker({ title, onPick, iconsOnly }) {
   });
 }
 function openSettings() {
-  openSheet(`<h3>설정</h3>
+  openSheet(`<h3>설정</h3><button type="button" class="btn" id="plugin-updates">업데이트 · ${RELEASE_VERSION}</button>
   <label class="chk" style="margin-top:12px"><input type="checkbox" id="qmtoggle" ${settings.quickMenu ? 'checked' : ''}> 세 손가락 메뉴에 「페르소나 공방」 추가</label>
   <div class="hint" style="margin-left:28px">화면 접근 권한이 필요합니다. 바꾸면 새로고침 후 적용됩니다. 입력창 옆 메뉴에는 항상 있습니다.</div>
   <label class="chk" style="margin-top:12px"><input type="checkbox" id="automirror" ${settings.autoMirror ? 'checked' : ''}> 닫을 때 보관함을 모듈로 자동 내보내기</label>
   <div class="hint" style="margin-left:28px">큰 모듈이 많으면 닫을 때마다 몇 초 걸립니다. 꺼 두고 필요할 때 보관함 탭에서 내보내는 것을 권합니다.</div>
   <label class="chk" style="margin-top:12px"><input type="checkbox" id="worlddef" ${settings.useWorld ? 'checked' : ''}> AI 생성 때 현재 봇의 세계관 참고 (기본값)</label>
   <div class="foot"><button type="button" class="btn pri" id="sx">완료</button></div>`, (w) => {
+    w.querySelector('#plugin-updates').onclick = openUpdates;
     w.querySelector('#qmtoggle').onchange = (e) => act(async () => { settings.quickMenu = e.target.checked; await saveSettings(); toast('저장했습니다. 새로고침 후 적용됩니다.'); });
     w.querySelector('#automirror').onchange = (e) => act(async () => { settings.autoMirror = e.target.checked; await saveSettings(); });
     w.querySelector('#worlddef').onchange = (e) => act(async () => { settings.useWorld = e.target.checked; await saveSettings(); const u = document.getElementById('useworld'); if (u) u.checked = e.target.checked; });

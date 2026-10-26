@@ -9,3 +9,6 @@
 !/tests/
 **/__pycache__/
 **/*.pyc
+
+!/update/
+!/CHANGELOG.md
