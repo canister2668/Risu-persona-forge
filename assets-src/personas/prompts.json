@@ -1,0 +1,60 @@
+{
+  "generator": "built-in image_gen",
+  "derivativePolicy": "Full-frame resize only to 832x1216; source images preserved; no retouching or compositing",
+  "images": [
+    {
+      "id": "modern-man",
+      "prompt": "Create ONE original reusable anime-style roleplay persona portrait, exactly 832 pixels wide by 1216 pixels tall. Professional Japanese/Korean character illustration, crisp refined line art, elegant soft cel shading, restrained cinematic lighting, polished natural adult anatomy. One adult man age 28, handsome calm face, short slightly tousled charcoal-black hair, gray eyes, wearing a simple white open-collar shirt under a dark navy casual jacket, no tie, no brand. Relaxed upright pose, shoulders turned slightly, looking toward viewer with a subtle friendly smile. Portrait from head through mid-thigh, full top of hair and shoulders inside frame, face centered in upper third and clear enough for square avatar cropping. Hands relaxed and mostly outside lower frame, no objects to hold. Soft unobtrusive contemporary cafe/city background in muted warm gray and beige, shallow depth, no text, no signs. Quiet versatile everyday protagonist, suitable for many stories, no canon character, no decorative borders, no UI, no logos, no watermark. Single image, not a sheet or collage. Output native dimensions 832x1216.",
+      "nativeSize": [
+        1037,
+        1516
+      ],
+      "source": "assets-src/personas/modern-man.png"
+    },
+    {
+      "id": "modern-woman",
+      "prompt": "Create ONE original reusable anime-style roleplay persona portrait, target canvas exactly 832x1216 pixels (portrait). Polished Japanese/Korean character art with crisp refined linework, soft cel shading and luminous but restrained daylight. One adult woman age 26, calm intelligent friendly face, shoulder-length chestnut brown hair with soft ends, warm brown eyes, natural adult proportions. Wearing a modest ivory blouse, moss-green knit cardigan, dark high-waisted trousers, minimal simple stud earrings. Relaxed upright three-quarter pose, looking at viewer with a gentle confident smile. Head through mid-thigh composition, complete hair and shoulders within frame, face in upper third with room for square avatar cropping. Both arms relaxed, fingers not prominent, no held objects. Subtle blurred bookstore/cafe background in muted cream and sage, clean uncluttered mood. Versatile everyday protagonist, not an existing character. No text, lettering, logos, watermark, UI, border, collage, panels, extra people or sexualized framing. Single coherent illustration.",
+      "nativeSize": [
+        1038,
+        1516
+      ],
+      "source": "assets-src/personas/modern-woman.png"
+    },
+    {
+      "id": "fantasy-man",
+      "prompt": "One original reusable fantasy anime roleplay persona portrait. Target native size 832 wide x 1216 high, vertical single illustration. A clearly adult male wandering knight age 30, short ash-blond hair, teal eyes, composed dependable expression, mature handsome proportions, a tiny old scar near one eyebrow. Tasteful functional layered dark brown traveling clothes, forest-green shoulder cape fastened with a simple round brass clasp, modest leather shoulder and forearm armor, practical belt. No weapon in his hands, no giant equipment. Portrait head to mid-thigh, full hair and shoulders within frame, face unobstructed near upper third, front three-quarter stance looking at viewer, arms resting naturally. Blurred medieval stone arch and green woodland distance, soft afternoon light. Polished high-end Japanese/Korean character illustration, refined crisp line art and soft cel shading, painterly background, consistent elegant anatomy, restrained warm palette. Generic original adventurer useful across fantasy settings. No lettering, text, insignia, UI, watermark, frames, collage, extra characters. Not an existing game character.",
+      "nativeSize": [
+        1038,
+        1516
+      ],
+      "source": "assets-src/personas/fantasy-man.png"
+    },
+    {
+      "id": "fantasy-woman",
+      "prompt": "One original reusable fantasy anime persona portrait, vertical 832x1216 pixel target canvas. Clearly adult woman age 29, elegant mature face, long softly wavy silver-white hair, amber eyes, composed kind expression, pointed elven ears visible but subtle. Modest layered midnight-blue and muted ivory traveling mage robes, high neckline, fine understated brass trim, fitted practical belt with a tiny closed pouch, soft short shoulder mantle. No hat, no weapon or staff, no held objects, no magical effects obscuring the body. Head to mid-thigh framing, full top of hair and shoulders safely within frame, face in upper third suitable for avatar cropping. Natural relaxed arms and posture, slight three-quarter turn looking at viewer. Soft blurred ancient stone library garden background in muted blue-green with warm late-day rim light. Refined Japanese/Korean anime character illustration, crisp delicate lines, soft cel shading, polished anatomy and natural adult proportions, detailed fabric without excessive ornament. A generic original fantasy scholar/traveler, not an established character. One character only. No text, UI, border, collage, logo, watermark, revealing outfit or sexualized pose.",
+      "nativeSize": [
+        1037,
+        1516
+      ],
+      "source": "assets-src/personas/fantasy-woman.png"
+    },
+    {
+      "id": "sf-man",
+      "prompt": "One original reusable science-fiction anime persona portrait, target 832x1216 pixels vertical. Clearly adult man age 32, confident thoughtful face, dark warm skin, close-cut charcoal hair, brown eyes, clean shaven. Wearing a practical pale-gray futuristic flight jacket with dark graphite underlayer, high fabric collar, small restrained teal seam lights, utility trousers; no helmet, no mask, no weapon, no text patches, no franchise insignia. Chest equipment minimal and credible, no dangling wires. Relaxed upright posture, three-quarter turn, eye contact, mild reassuring smile, arms resting naturally at sides. Composition head to mid-thigh, full head and shoulders in frame, face centered in upper third for good avatar crop. Muted softly blurred space-station hangar window background, cool blue-gray daylight with a warm facial highlight. Elegant premium Japanese/Korean anime character art, refined linework, soft cel shading, realistic adult proportions, detailed fabric. Useful across space opera, near-future, pilot and engineer stories, entirely original. No lettering, UI, logos, watermark, borders, collage, other characters, exaggerated armor or giant props.",
+      "nativeSize": [
+        1037,
+        1516
+      ],
+      "source": "assets-src/personas/sf-man.png"
+    },
+    {
+      "id": "sf-woman",
+      "prompt": "One original reusable science-fiction anime persona portrait. Vertical target 832x1216 pixels. Clearly adult woman age 27, mature confident friendly face, short sleek dark teal bob tucked behind one ear, violet-gray eyes, natural adult anatomy. Wearing a practical slate-gray and muted teal futuristic utility jacket over a modest black high-neck shirt, simple dark trousers, tiny metallic ear stud. Minimal refined tech details, small wrist communicator, no helmet, no guns, no text patches or franchise symbols. Relaxed upright three-quarter pose looking at viewer, both arms lowered naturally, one hand casually near a trouser pocket, no held objects. Head to mid-thigh framing with full hair and shoulders safely within frame; clear face in upper third for avatar use. Soft defocused futuristic city transit/station background in blue-gray and warm amber, no readable signage. Premium Japanese/Korean anime illustration, fine clean linework, soft cel shading, restrained cinematic light, polished fabric rendering. Generic original technician/explorer protagonist suitable across many science-fiction stories. Single character, single coherent portrait. No text, caption, logos, watermark, borders, UI, collage, extra people, cleavage or sexualized pose.",
+      "nativeSize": [
+        1038,
+        1516
+      ],
+      "source": "assets-src/personas/sf-woman.png"
+    }
+  ]
+}

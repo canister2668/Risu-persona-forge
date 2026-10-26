@@ -1,0 +1,11 @@
+# Publish only the plugin, reproducible image catalog, source artwork, and tests.
+/*
+!/.gitignore
+!/README.md
+!/persona-forge.plugin.js
+!/assets-src/
+!/templates/
+!/scripts/
+!/tests/
+**/__pycache__/
+**/*.pyc

@@ -1,0 +1,11 @@
+{
+  "baseUrl": "https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/templates/personas/",
+  "items": [
+    {"id":"modern-man","name":"현대 · 차분한 청년","category":"현대","gender":"male","description":"검은 머리, 흰 셔츠와 네이비 재킷. 일상과 현대물에 어울리는 성인 남성."},
+    {"id":"modern-woman","name":"현대 · 다정한 여성","category":"현대","gender":"female","description":"갈색 단발과 세이지색 카디건. 차분한 일상에 어울리는 성인 여성."},
+    {"id":"fantasy-man","name":"판타지 · 방랑 기사","category":"판타지","gender":"male","description":"금갈색 머리와 초록 망토, 가죽 장비. 여행자와 기사에 어울리는 성인 남성."},
+    {"id":"fantasy-woman","name":"판타지 · 은발 엘프","category":"판타지","gender":"female","description":"은발과 호박색 눈, 단정한 로브. 학자와 마법사에 어울리는 성인 여성."},
+    {"id":"sf-man","name":"SF · 우주 항해사","category":"SF","gender":"male","description":"짧은 머리와 밝은 회색 비행 재킷. 조종사와 탐험가에 어울리는 성인 남성."},
+    {"id":"sf-woman","name":"SF · 도시 탐험가","category":"SF","gender":"female","description":"청록빛 단발과 실용적인 재킷. 기술자와 탐험가에 어울리는 성인 여성."}
+  ]
+}
