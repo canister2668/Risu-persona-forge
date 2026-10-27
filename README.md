@@ -61,6 +61,7 @@ python3 scripts/build-portraits.py
 # Playwright 및 Chromium이 설치된 환경에서:
 node tests/gallery.cjs
 node tests/ai-gen.cjs
+node tests/window.cjs
 ```
 
 브라우저 시험은 가짜 Risu 호스트를 사용합니다. 1280·390·320px에서 목록, 분류, 선택, 취소, 실패 후 재시도, 해시 불일치 거부, 기존 내용 보존을 검사하며 실제 모델이나 라이브 데이터에 접근하지 않습니다. 실제 Risu API 확인은 별도로 RISU-LAB에서 수행합니다.

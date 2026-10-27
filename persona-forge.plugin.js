@@ -1,8 +1,8 @@
 //@name persona_forge
 //@api 3.0
-//@version 0.3.3
+//@version 0.3.4
 //@update-url https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/persona-forge.plugin.js
-//@display-name 페르소나 공방 v0.3.3
+//@display-name 페르소나 공방 v0.3.4
 //@description 성별·시대·나이·종족 같은 토글과 보조 모델로 페르소나를 즉석에서 짜고, 보관함(모듈 로어북)·페르소나 목록·채팅 연결·이미지를 한곳에서 관리합니다.
 
 /*
@@ -22,7 +22,7 @@
  *  - API only, no core patches.
  */
 
-const RELEASE_VERSION = '0.3.3';
+const RELEASE_VERSION = '0.3.4';
 const UPDATE_BASE = 'https://raw.githubusercontent.com/canister2668/Risu-persona-forge/';
 const UPDATE_MANIFEST = UPDATE_BASE + 'main/update/latest.json';
 const newerVersion = (a, b) => { const aa = a.split('.').map(Number), bb = b.split('.').map(Number); for (let i=0;i<3;i++) { if (aa[i] !== bb[i]) return aa[i] > bb[i]; } return false; };
@@ -142,7 +142,7 @@ const optLabel = (k, v) => (OPT[k].find((o) => o[0] === v) || OPT[k][0])[1];
 const clean = (s) => String(s ?? '').trim();
 
 async function loadSettings() {
-  try { settings = { inject: {}, links: {}, useWorld: true, quickMenu: true, lang: 'en', autoMirror: false, genLen: 'medium', tplSet: 'modern', tpl: {}, ...((await Risuai.pluginStorage.getItem(STORE_KEY)) || {}) }; }
+  try { settings = { inject: {}, links: {}, useWorld: true, quickMenu: true, lang: 'en', autoMirror: false, genLen: 'medium', tplSet: 'modern', tpl: {}, winSize: 'window', ...((await Risuai.pluginStorage.getItem(STORE_KEY)) || {}) }; }
   catch (e) { settings = { inject: {}, links: {}, useWorld: true, quickMenu: true, lang: 'en' }; }
   return settings;
 }
@@ -976,8 +976,8 @@ textarea{line-height:1.8;min-height:100px}textarea.tall{min-height:180px}
 @media(min-width:1400px){.cols{grid-template-columns:minmax(0,1fr) 350px}}
 @media(max-width:1023px){.side{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}.side .card{margin:0}.sheet-card pre{max-height:320px}}
 @media(max-width:767px){
- .top{padding:12px 16px 10px;flex-wrap:wrap;gap:4px}.brand{flex-basis:calc(100% - 100px);order:0;gap:10px}.brand h1{font-size:18px}.brand small{font-size:9px}.brandmark{width:36px;height:36px}
- .top>#opensettings,.top>#close{order:0}.top>#new,.top>#openquick,.top>#loadpersona{order:1;flex:1;margin-top:6px;border:1px solid var(--line2);height:44px;font-size:12px;background:#1a1e21}
+ .top{padding:12px 16px 10px;flex-wrap:wrap;gap:4px}.brand{flex-basis:calc(100% - 150px);order:0;gap:10px}.brand h1{font-size:18px}.brand small{font-size:9px}.brandmark{width:36px;height:36px}
+ .top>#opensettings,.top>#winsize,.top>#close{order:0}.top>#new,.top>#openquick,.top>#loadpersona{order:1;flex:1;margin-top:6px;border:1px solid var(--line2);height:44px;font-size:12px;background:#1a1e21}
 }
 @media(max-width:599px){
  .tabs{padding:0 16px;gap:0;display:grid;grid-template-columns:repeat(4,1fr)}.tabs button{gap:5px;font-size:12px;height:48px}.tabs .ico{width:14px;height:14px}
@@ -1010,6 +1010,14 @@ textarea{line-height:1.8;min-height:100px}textarea.tall{min-height:180px}
 .portrait-status{min-height:18px;margin-top:6px;font-size:12px;color:var(--sub)}.portrait-status.error{color:var(--danger)}.portrait-sheet .foot{margin-top:8px;flex-wrap:nowrap}.portrait-sheet .foot .btn{min-height:44px}
 @media(max-width:599px){.sheet.portrait-sheet{height:92dvh;max-height:92dvh}.portrait-header{padding:16px}.portrait-header h3{font-size:17px}.portrait-body{padding:0 12px 16px}.portrait-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.portrait-bottom{padding:10px 16px calc(12px + env(safe-area-inset-bottom))}.portrait-filters .btn{flex:1;padding:0 8px}.portrait-tile b{min-height:44px;display:flex;align-items:center}.portrait-detail img{width:36px}.portrait-detail{min-height:53px}}
 
+
+/* Window mode (default): the plugin iframe always covers the screen, so the app floats as an inset window.
+   Bots pin badges to screen edges above the iframe; the inset keeps the header buttons clear of them. */
+html[data-win=window],html[data-win=window] body{background:transparent}
+html[data-win=window] body::before{content:'';position:fixed;inset:0;background:#05070999}
+html[data-win=window] .app{position:fixed;inset:0;margin:auto;width:min(1180px,calc(100vw - 144px));height:min(900px,calc(100dvh - 128px));background:var(--bg);border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 90px #000b;overflow:hidden}
+html[data-win=window] .side{max-height:calc(min(900px,100dvh - 128px) - 240px)}
+@media(max-width:767px){html[data-win=window] .app{inset:64px 6px 12px;width:auto;height:auto;border-radius:14px}html[data-win=window] .side{max-height:none}}
 `;
 
 const ERA_SHORT = (v) => optLabel('era', v);
@@ -1023,6 +1031,8 @@ const UI_ICONS = {
   load: '<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>',
   settings: '<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="18" r="2"/>',
   close: '<path d="m6 6 12 12M6 18 18 6"/>',
+  expand: '<path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/>',
+  shrink: '<path d="M20 10h-6V4M4 14h6v6M14 10l7-7M10 14l-7 7"/>',
   save: '<path d="M5 3h12l4 4v14H3V3zM7 3v6h10V3M7 21v-8h10v8"/>',
   spark: '<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/>',
   check: '<path d="m5 12 4 4L19 6"/>',
@@ -1237,12 +1247,14 @@ async function render() {
   const body = ui.tab === 'edit' ? editTab(d) : ui.tab === 'vault' ? vaultTab() : ui.tab === 'persona' ? personaTab() : applyTab();
   const keepScroll = ui.lastTab === ui.tab ? document.querySelector('.scroll')?.scrollTop || 0 : 0;
   ui.lastTab = ui.tab;
+  document.documentElement.dataset.win = settings.winSize === 'full' ? 'full' : 'window';
   document.body.innerHTML = `<style>${CSS}</style><div class="app">
 <header class="top"><div class="brand"><span class="brandmark">${icon('pen')}</span><div><h1>페르소나 공방</h1><small>PERSONA ATELIER</small></div></div>
  <button type="button" class="ibtn" id="new" title="새로 만들기">${icon('plus')}새로 만들기</button>
  <button type="button" class="ibtn" id="openquick" title="보관함에서 이 채팅 페르소나 고르기">${icon('switch')}빠른 전환</button>
  <button type="button" class="ibtn" id="loadpersona" title="기존 페르소나 불러오기">${icon('load')}불러오기</button>
  <button type="button" class="ibtn icon-only" id="opensettings" title="설정" aria-label="설정">${icon('settings')}</button>
+ <button type="button" class="ibtn icon-only" id="winsize" title="${settings.winSize === 'full' ? '창으로 줄이기' : '전체 화면으로'}" aria-label="${settings.winSize === 'full' ? '창으로 줄이기' : '전체 화면으로'}">${icon(settings.winSize === 'full' ? 'shrink' : 'expand')}</button>
  <button type="button" class="ibtn icon-only" id="close" title="닫기" aria-label="닫기">${icon('close')}</button></header>
 <nav class="tabs" aria-label="공방 메뉴">${[['edit', '편집', 'pen'], ['vault', '보관함', 'vault'], ['persona', '원본', 'user'], ['apply', '채팅 적용', 'link']].map(([k, l, ico]) => `<button type="button" data-tab="${k}" class="${ui.tab === k ? 'on' : ''}"${ui.tab === k ? ' aria-current="page"' : ''}>${icon(ico)}${l}</button>`).join('')}</nav>
 <main class="scroll"><div class="body">${body}</div></main>
@@ -1599,6 +1611,13 @@ function bind() {
     await render();
   }));
   on('#close', () => { if (ui.tab === 'edit') readForm(); closeForge(); });
+  on('#winsize', (el) => act(async () => {
+    settings.winSize = settings.winSize === 'full' ? 'window' : 'full';
+    document.documentElement.dataset.win = settings.winSize;
+    const full = settings.winSize === 'full', label = full ? '창으로 줄이기' : '전체 화면으로';
+    el.innerHTML = icon(full ? 'shrink' : 'expand'); el.title = label; el.setAttribute('aria-label', label);
+    await saveSettings();
+  }));
   on('#opensettings', () => openSettings());
   on('#openquick', () => act(() => openQuick()));
   on('#new', (el) => act(async () => { if (ui.tab === 'edit') readForm(); if (!guardReplace(el, '새로 만들려면')) return; await loadDraft(BLANK); await render(); toast('새 초안을 시작했습니다.'); }));
@@ -1627,7 +1646,7 @@ function bind() {
   const menu = $('avamenu');
   if ($('ava')) $('ava').onclick = (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; $('ava').setAttribute('aria-expanded', String(!menu.hidden)); };
   if (menu) document.querySelector('.scroll').addEventListener('click', (e) => { if (!menu.hidden && !menu.contains(e.target)) { menu.hidden = true; $('ava').setAttribute('aria-expanded', 'false'); } });
-  if (menu) menu.onkeydown = (e) => { if (e.key === 'Escape') { menu.hidden = true; $('ava').setAttribute('aria-expanded', 'false'); $('ava').focus(); } };
+  if (menu) menu.onkeydown = (e) => { if (e.key === 'Escape') { e.preventDefault(); menu.hidden = true; $('ava').setAttribute('aria-expanded', 'false'); $('ava').focus(); } };
   if ($('canoncard')) $('canoncard').ontoggle = (e) => { ui.canonOpen = e.target.open; };
   if ($('briefcard')) $('briefcard').ontoggle = (e) => { ui.briefOpen = e.target.open; };
   on('#portrait-templates', () => openPortraitLibrary());
@@ -1925,6 +1944,15 @@ async function loadFromPersona(i) {
 }
 async function openForge(opts = {}) {
   await loadSettings();
+  if (!openForge.esc) {
+    openForge.esc = true;
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape' || e.defaultPrevented || document.getElementById('scrim')) return;
+      const menu = document.getElementById('avamenu'); if (menu && !menu.hidden) return;
+      if (ui.tab === 'edit') readForm();
+      closeForge();
+    });
+  }
   if (!ui.draft) await loadDraft(BLANK);
   await readPersonas().catch(() => {});
   await render();

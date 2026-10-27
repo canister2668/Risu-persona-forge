@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "name": "persona_forge",
-  "version": "0.3.3",
-  "url": "https://raw.githubusercontent.com/canister2668/Risu-persona-forge/v0.3.3/persona-forge.plugin.js",
-  "bytes": 586053,
-  "sha256": "2bd67e9035a4a59ed1423e9a738f0fdaab7b595071249f258fd3646afbf62648"
+  "version": "0.3.4",
+  "url": "https://raw.githubusercontent.com/canister2668/Risu-persona-forge/v0.3.4/persona-forge.plugin.js",
+  "bytes": 588290,
+  "sha256": "7bc8145c312d47501607aa7a32a3de773a1cb818d910d20e16c0f37c712b8633"
 }
