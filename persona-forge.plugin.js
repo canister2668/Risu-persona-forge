@@ -1,6 +1,6 @@
 //@name persona_forge
 //@api 3.0
-//@version 0.3.1
+//@version 0.3.2
 //@update-url https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/persona-forge.plugin.js
 //@display-name 페르소나 공방
 //@description 성별·시대·나이·종족 같은 토글과 보조 모델로 페르소나를 즉석에서 짜고, 보관함(모듈 로어북)·페르소나 목록·채팅 연결·이미지를 한곳에서 관리합니다.
@@ -22,7 +22,7 @@
  *  - API only, no core patches.
  */
 
-const RELEASE_VERSION = '0.3.1';
+const RELEASE_VERSION = '0.3.2';
 const UPDATE_BASE = 'https://raw.githubusercontent.com/canister2668/Risu-persona-forge/';
 const UPDATE_MANIFEST = UPDATE_BASE + 'main/update/latest.json';
 const newerVersion = (a, b) => { const aa = a.split('.').map(Number), bb = b.split('.').map(Number); for (let i=0;i<3;i++) { if (aa[i] !== bb[i]) return aa[i] > bb[i]; } return false; };
@@ -525,7 +525,7 @@ async function auxJson(system, user) {
   return JSON.parse(m[0]);
 }
 const asText = (v) => (Array.isArray(v) ? v.join('\n') : String(v).trim());
-const SECTION_EN = { look: 'Appearance', personality: 'Personality', past: 'Background' };
+const SECTION_EN = { look: 'Appearance', personality: 'Personality', past: 'Background', skills: 'Abilities and Skills' };
 async function worldExcerpt() {
   if (!settings.useWorld) return '';
   try { const c = await Risuai.getCharacter(); return clean([c?.desc, c?.scenario].filter(Boolean).join('\n')).slice(0, 3000); } catch (e) { return ''; }
@@ -613,6 +613,81 @@ async function auxCanon(p, direction) {
   for (const k of ['gender', 'ageMode', 'race', 'build']) if (OPT[k].some((o) => o[0] === j[k])) out[k] = j[k];
   for (const k of ['name', 'age', 'raceText', 'job', 'basic', 'look', 'personality', 'past', 'skills']) if (j[k] != null && clean(asText(j[k]))) out[k] = asText(j[k]);
   return out;
+}
+// Whole sheet from a free description. Filled fields stay; only empty ones are written.
+const CHOICE_DEFAULT = { gender: 'none', ageMode: 'input', era: 'world', origin: 'native', race: 'human', build: 'omit' };
+const SECTION_KEYS = ['look', 'personality', 'past', 'skills'];
+const skillsFilled = (p) => Boolean((p.modes || {}).skills === 'write' ? clean(p.skills) : p.noAbility || (p.slots || []).some((s) => s.type || clean(s.name)));
+function emptyKeys(p) {
+  const out = [];
+  if (!clean(p.name)) out.push('name');
+  for (const [k, v] of Object.entries(CHOICE_DEFAULT)) if (p[k] === v && !(k === 'ageMode' && clean(p.age))) out.push(k);
+  if (p.ageMode === 'input' && !clean(p.age)) out.push('age');
+  if (!clean(p.job)) out.push('job');
+  if (!clean(p.basic)) out.push('basic');
+  for (const k of ['look', 'personality', 'past']) if (!clean(p[k])) out.push(k);
+  if (!skillsFilled(p)) out.push('skills');
+  return out;
+}
+const WHOLE_SYSTEM = [
+  'You design the user\'s own character (persona) for a roleplay as a full character sheet, from the user\'s description.',
+  'Reply with one JSON object only, no code fence, using only the keys you are asked to write.',
+  'Choice keys (use exactly one listed value): gender ' + OPT.gender.map((o) => o[0]).join('|') + '; ageMode ' + OPT.ageMode.map((o) => o[0]).join('|') +
+  '; era ' + OPT.era.map((o) => o[0]).join('|') + '; origin ' + OPT.origin.map((o) => o[0]).join('|') + ' (outsider = came from another world or era); race ' + OPT.race.map((o) => o[0]).join('|') +
+  ' (custom when the race has its own name, written in raceText); build ' + OPT.build.map((o) => o[0]).join('|') + '.',
+  'Text keys: name, age, raceText, job (occupation, role or rank), basic (other basic facts such as height or affiliation, one "Key: value" per line),',
+  'look (Appearance), personality (Personality, including speech style), past (Background, plain prose), skills (Abilities and Skills; "- None" for an ordinary person without special abilities).',
+  'Write look, personality and skills as bullet lines like "- Hair: short black hair; often falls over his eyes" (a short label, colon, details joined with semicolons), one per line.',
+  'Everything the description states must appear. Invent the rest so it fits the description and the current sheet. Keep the current sheet\'s filled values as fixed facts.',
+  'Leave name empty unless the description gives one. If a world excerpt is given, make the persona fit that world without copying its characters.',
+  'Describe the persona only; write no dialogue and no story events.',
+].join(' ');
+async function auxWhole(p, brief) {
+  const lang = langOf(p), world = await worldExcerpt(), want = emptyKeys(p);
+  if (!want.length) return {};
+  const user = [
+    `Description by the user:\n${clean(brief)}`,
+    `Current sheet (filled values are fixed; short trait lines under a section are chosen traits that must appear):\n${composePersona({ ...p, name: clean(p.name) || '(not set)' })}`,
+    canonNote(p),
+    `Setting genre: ${TPL.sets[setOf(p)].label}`,
+    `Write only these keys: ${want.join(', ')}.`,
+    world ? `World excerpt:\n${world}` : '',
+  ].filter(Boolean).join('\n\n');
+  const j = await auxJson(`${WHOLE_SYSTEM} ${GEN_LEN[settings.genLen] || GEN_LEN.medium} Write every text value in ${LANG_NAME[lang]}.`, user);
+  const out = {};
+  for (const k of want) {
+    if (OPT[k]) { if (OPT[k].some((o) => o[0] === j[k])) out[k] = j[k]; }
+    else if (j[k] != null && clean(asText(j[k]))) out[k] = asText(j[k]);
+  }
+  if (out.raceText && !want.includes('race')) delete out.raceText;
+  return out;
+}
+// Current text of one section as it appears on the sheet (typed text, else picked traits / skill slots).
+function sectionText(p, k) {
+  const lang = langOf(p);
+  if (k === 'look') return clean(p.look) || picksToLines(p, 'look', lang);
+  if (k === 'skills') return skillLines(p, lang);
+  return clean(p[k]) || picksToLines(p, k, lang);
+}
+// Edits one section by the user's request, keeping the rest of it.
+async function auxRevise(p, section, request) {
+  const lang = langOf(p), cur = sectionText(p, section);
+  const others = SECTION_KEYS.filter((k) => k !== section).map((k) => [k, sectionText(p, k)]).filter(([, t]) => t).map(([k, t]) => `${LABELS.en[k]}:\n${t}`);
+  const user = [
+    `Basic facts:\n${composePersona({ ...p, look: '', personality: '', past: '', skills: '', extra: '', picks: {}, slots: [], noAbility: false, modes: {} })}`,
+    canonNote(p),
+    `Current ${LABELS.en[section]}:\n${cur}`,
+    others.length ? `Other sections (stay consistent):\n${others.join('\n\n')}` : '',
+    `Change request: ${clean(request)}`,
+  ].filter(Boolean).join('\n\n');
+  const sys = [
+    `You edit one section ("${section}") of the user's roleplay persona sheet. Reply with one JSON object only, no code fence: {"${section}": "the whole edited section"}.`,
+    'Apply the change request. Keep every other line and detail as it is unless the request changes it or it conflicts with the change. Keep the same format:',
+    section === 'past' ? 'plain prose.' : 'bullet lines like "- Label: details; details", one per line.',
+    `Write in ${LANG_NAME[lang]}. Describe the persona only; write no dialogue and no story events.`,
+  ].join(' ');
+  const j = await auxJson(sys, user);
+  return j[section] != null ? asText(j[section]) : '';
 }
 // Translates the free-text fields to the target sheet language. Keys and choice values are untouched.
 const TR_KEYS = ['age', 'raceText', 'job', 'basic', 'look', 'personality', 'past', 'skills', 'extra'];
@@ -914,7 +989,7 @@ textarea{line-height:1.8;min-height:100px}textarea.tall{min-height:180px}
  .sec{font-size:16px;gap:10px}.grid2{gap:18px}.field{margin-top:18px}.field>.lab{flex-wrap:wrap;gap:3px 8px}.segc button{min-height:44px;font-size:13px}
  .btn.sm,.btn.tiny,.btn.ghost,.chip,.segc.sm button{min-height:44px}.btn.tiny{padding:0 10px}.cg .lab{margin-bottom:4px}.chips{gap:7px}
  .canon-card{padding:0}.canon-card>summary{padding:15px 16px}.canon-content{padding:0 16px 16px}.canon-card .grid2{gap:16px}
- .genbar{padding:10px}.genbar>.row>.btn{flex:1}.genbar>.row>.segc{flex:1}.genbar .segc button{padding:2px 6px}.genbar .btn{font-size:12px}
+ .genbar{padding:10px}.genbar>.row{flex-wrap:wrap}.genbar>.row>.btn{flex:1}.genbar>.row>.segc{flex:1 1 100%}.genbar>.row>.row{flex:1 1 100%}.genbar>.row>.row>.btn{flex:1}.genbar .segc button{padding:2px 6px}.genbar .btn{font-size:12px}
  .bar{padding:10px 16px calc(10px + env(safe-area-inset-bottom))}.bar .in{gap:7px;flex-wrap:wrap}.bar .bar-note{display:none}.bar #busy:not([hidden]){flex-basis:100%;font-size:12px}
  .bar .btn{padding:0 10px;font-size:13px;min-height:48px}.bar #toapply{padding:0 10px}.bar #applymore{width:44px}.bar .btn .ico{width:16px;height:16px}
  .side{display:block}.side .sheet-card{margin-bottom:16px}.side #chatstate{padding:16px 2px}.sheet-card pre{max-height:240px}
@@ -999,9 +1074,18 @@ function modeSeg(d, k) {
   return `<div class="segc sm" data-mode="${k}"><button type="button" data-v="pick" class="${modeOf(d, k) === 'pick' ? 'on' : ''}">템플릿</button><button type="button" data-v="write" class="${modeOf(d, k) === 'write' ? 'on' : ''}">직접 쓰기</button></div>`;
 }
 function genBar(k, label) {
-  return `<div class="genbar"><input type="text" data-dir="${k}" value="${esc((ui.dir || {})[k] || '')}" placeholder="추가 요청 (선택) 예: 차분하고 지적인 느낌">
+  return `<div class="genbar"><input type="text" data-dir="${k}" value="${esc((ui.dir || {})[k] || '')}" placeholder="요청 예: 머리를 은발 장발로 바꿔 줘 / 차분하고 지적인 느낌">
   <div class="row"><div class="segc sm" data-genlen>${[['short', '짧게'], ['medium', '중간'], ['long', '길게']].map(([v, l]) => `<button type="button" data-len="${v}" class="${(settings.genLen || 'medium') === v ? 'on' : ''}">${l}</button>`).join('')}</div>
-  <button type="button" class="btn pri sm" data-gen="${k}">✨ ${label}</button></div></div>`;
+  <span class="row">${label ? `<button type="button" class="btn sm" data-gen="${k}">✨ ${label}</button>` : ''}<button type="button" class="btn pri sm" data-revise="${k}">✏️ 요청대로 고치기</button></span></div>
+  <p class="hint" style="margin:0">「요청대로 고치기」는 지금 내용을 두고 요청한 곳만 바꿉니다.${label ? ` 「${label}」는 이 항목을 새로 씁니다.` : ''}</p></div>`;
+}
+function briefCard() {
+  return `<details class="card canon-card" id="briefcard" ${ui.briefOpen ?? true ? 'open' : ''}><summary>${icon('spark')}<span class="summary-copy"><b>설명으로 AI 전체 생성</b><span class="hint">원하는 인물을 적으면 모든 항목을 채웁니다</span></span></summary><div class="canon-content">
+ <textarea data-dir="brief" class="tall" placeholder="예: 몰락한 귀족 가문의 막내딸. 20대 초반, 은발에 차가운 인상이지만 속은 여림. 검술은 서툴고 대신 문장학과 고대어에 밝다.">${esc((ui.dir || {}).brief || '')}</textarea>
+ <div class="genbar" style="margin-top:12px"><div class="row"><div class="segc sm" data-genlen>${[['short', '짧게'], ['medium', '중간'], ['long', '길게']].map(([v, l]) => `<button type="button" data-len="${v}" class="${(settings.genLen || 'medium') === v ? 'on' : ''}">${l}</button>`).join('')}</div>
+  <span class="row">${ui.splitUndo ? '<button type="button" class="btn ghost sm" data-undo>되돌리기</button>' : ''}<button type="button" class="btn sm danger" id="wipeall">전부 비우기</button><button type="button" class="btn pri sm" id="wholegen">✨ 전체 생성</button></span></div></div>
+ <p class="hint" style="margin:10px 0 0">이미 채운 칸은 그대로 두고 빈 칸만 채웁니다. 처음부터 새로 만들려면 「전부 비우기」 뒤 설명을 적고 생성하세요. 이름은 설명에 있을 때만 넣습니다. 생성 뒤 각 단계의 「요청대로 고치기」로 항목마다 손볼 수 있습니다.</p>
+</div></details>`;
 }
 function canonCard(d) {
   return `<details class="card canon-card" id="canoncard" ${ui.canonOpen ?? Boolean(clean(d.canon)) ? 'open' : ''}><summary>${icon('spark')}<span class="summary-copy"><b>원작 캐릭터로 시작</b><span class="hint">작품 속 인물의 설정을 가져와 다듬기 · 선택</span></span></summary><div class="canon-content">
@@ -1016,7 +1100,7 @@ function canonCard(d) {
 </div></details>`;
 }
 function stepBasic(d) {
-  return `${canonCard(d)}<div class="card"><h2 class="sec">기본 정보</h2>
+  return `${briefCard()}${canonCard(d)}<div class="card"><h2 class="sec">기본 정보</h2>
  <div class="grid2">
   <div class="field"><div class="lab">성별</div>${segc('gender', d.gender)}</div>
   <div class="field"><div class="lab">나이</div>${segc('ageMode', d.ageMode)}
@@ -1028,7 +1112,7 @@ function stepBasic(d) {
   <div class="field"><div class="lab"><span>직업·신분</span><span class="hint">비우면 표기 안 함</span></div><input type="text" data-f="job" value="${esc(d.job)}"></div>
  </div>
  <div class="field"><div class="lab"><span>기본 정보 추가 항목</span><span class="hint">한 줄에 하나 · 예: Height: 178cm</span></div><textarea data-f="basic" placeholder="Height: 178cm&#10;Rank: S-Rank">${esc(d.basic)}</textarea></div>
- <div class="field"><div class="lab"><span>메모 <span class="hint">시트 끝 Notes에 그대로</span></span><span class="row">${ui.splitUndo ? '<button type="button" class="btn ghost" id="splitundo">되돌리기</button>' : ''}<button type="button" class="btn ghost" id="splitextra" ${clean(d.extra) ? '' : 'hidden'}>메모에서 항목 추출</button></span></div><textarea data-f="extra">${esc(d.extra)}</textarea></div>
+ <div class="field"><div class="lab"><span>메모 <span class="hint">시트 끝 Notes에 그대로</span></span><span class="row">${ui.splitUndo ? '<button type="button" class="btn ghost" data-undo>되돌리기</button>' : ''}<button type="button" class="btn ghost" id="splitextra" ${clean(d.extra) ? '' : 'hidden'}>메모에서 항목 추출</button></span></div><textarea data-f="extra">${esc(d.extra)}</textarea></div>
 </div>`;
 }
 function stepSection(d, k) {
@@ -1044,7 +1128,8 @@ function stepSection(d, k) {
 function stepSkills(d) {
   const write = modeOf(d, 'skills') === 'write', set = setOf(d);
   if (write) return `<div class="card"><h2 class="sec"><span>스킬</span>${modeSeg(d, 'skills')}</h2>
- <textarea data-f="skills" class="tall" placeholder="- Sword Mastery [Combat · High]: …">${esc(d.skills)}</textarea></div>`;
+ <textarea data-f="skills" class="tall" placeholder="- Sword Mastery [Combat · High]: …">${esc(d.skills)}</textarea>
+ ${genBar('skills', 'AI로 쓰기')}</div>`;
   const slots = d.slots || [];
   return `<div class="card"><h2 class="sec"><span>스킬</span>${modeSeg(d, 'skills')}</h2>
  <button type="button" class="chip big${d.noAbility ? ' on' : ''}" id="noability">무능력 (스킬 없음)</button>
@@ -1058,7 +1143,7 @@ function stepSkills(d) {
   <textarea data-slotf="desc" data-i="${i}" placeholder="설명 (선택)">${esc(s.desc)}</textarea>
  </div>`).join('')}</div>
  <div class="row" style="margin-top:12px"><button type="button" class="btn sm" id="addslot">＋ 스킬 추가</button>${slots.length ? '<button type="button" class="btn sm" id="genslots">✨ 이름 없는 스킬 모두 생성</button>' : ''}</div>
- <div class="genbar"><input type="text" data-dir="skills" value="${esc((ui.dir || {}).skills || '')}" placeholder="추가 요청 (선택) 예: 대가가 큰 능력"><div class="row"><div class="segc sm" data-genlen>${[['short', '짧게'], ['medium', '중간'], ['long', '길게']].map(([v, l]) => `<button type="button" data-len="${v}" class="${(settings.genLen || 'medium') === v ? 'on' : ''}">${l}</button>`).join('')}</div></div></div>`}
+ <div class="genbar"><input type="text" data-dir="skills" value="${esc((ui.dir || {}).skills || '')}" placeholder="요청 예: 대가가 큰 능력 / 두 번째 스킬을 치유계로"><div class="row"><div class="segc sm" data-genlen>${[['short', '짧게'], ['medium', '중간'], ['long', '길게']].map(([v, l]) => `<button type="button" data-len="${v}" class="${(settings.genLen || 'medium') === v ? 'on' : ''}">${l}</button>`).join('')}</div><button type="button" class="btn sm" data-revise="skills">✏️ 요청대로 고치기 (글로 바뀜)</button></div></div>`}
 </div>`;
 }
 function stepPreview(d) {
@@ -1186,7 +1271,7 @@ function setBusy(label) {
   ui.busy = label || '';
   const b = document.getElementById('busy');
   if (b) { b.hidden = !ui.busy; b.textContent = ui.busy; }
-  document.querySelectorAll('[data-gen],#splitextra,#tovault,#toapply,#applymore,#new,#loadpersona,#trfields,#trview,#srcsplit,#srcmemo,#langseg button').forEach((el) => (el.disabled = Boolean(ui.busy)));
+  document.querySelectorAll('[data-gen],[data-revise],#wholegen,#wipeall,#splitextra,#tovault,#toapply,#applymore,#new,#loadpersona,#trfields,#trview,#srcsplit,#srcmemo,#langseg button').forEach((el) => (el.disabled = Boolean(ui.busy)));
 }
 function twice(el, msg) {
   if (el.dataset.armed) return true;
@@ -1544,6 +1629,7 @@ function bind() {
   if (menu) document.querySelector('.scroll').addEventListener('click', (e) => { if (!menu.hidden && !menu.contains(e.target)) { menu.hidden = true; $('ava').setAttribute('aria-expanded', 'false'); } });
   if (menu) menu.onkeydown = (e) => { if (e.key === 'Escape') { menu.hidden = true; $('ava').setAttribute('aria-expanded', 'false'); $('ava').focus(); } };
   if ($('canoncard')) $('canoncard').ontoggle = (e) => { ui.canonOpen = e.target.open; };
+  if ($('briefcard')) $('briefcard').ontoggle = (e) => { ui.briefOpen = e.target.open; };
   on('#portrait-templates', () => openPortraitLibrary());
   on('#portrait-auto', () => act(async () => { readForm(); ui.draft.portraitMode = 'auto'; ui.draft.portraitId = ''; ui.draft.icon = ''; syncPortrait(ui.draft); await render(); }));
   on('#portrait-custom', () => $('iconfile').click());
@@ -1598,7 +1684,36 @@ function bind() {
       toast('원작 설정으로 채웠습니다 · 틀린 곳은 각 단계에서 고치고, 「되돌리기」로 취소할 수 있습니다.');
     } finally { setBusy(''); }
   }));
-  on('#splitundo', () => act(async () => { ui.draft = ui.splitUndo.draft || ui.splitUndo; ui.source = ui.splitUndo.source || ''; ui.splitUndo = null; await render(); toast('추출 전으로 되돌렸습니다.'); }));
+  on('#wholegen', () => act(async () => {
+    readForm();
+    if (!clean((ui.dir || {}).brief)) { toast('만들 인물을 설명 칸에 먼저 적어 주세요.', true); document.querySelector('[data-dir="brief"]')?.focus(); return; }
+    if (!emptyKeys(ui.draft).length) { toast('빈 칸이 없어 채울 것이 없습니다. 처음부터 다시 만들려면 「전부 비우기」를 먼저 누르세요.', true); return; }
+    setBusy('설명으로 전체 생성 중…');
+    try {
+      const before = clone(ui.draft);
+      const got = await auxWhole(ui.draft, ui.dir.brief);
+      if (!Object.keys(got).length) { toast('AI가 채울 내용을 보내지 않았습니다. 다시 시도해 주세요.', true); return; }
+      Object.assign(ui.draft, got);
+      if (got.raceText && !got.race && ui.draft.race === 'human') ui.draft.race = 'custom';
+      if (got.age) ui.draft.ageMode = 'input';
+      ui.draft.modes = { ...(ui.draft.modes || {}), ...Object.fromEntries(SECTION_KEYS.filter((k) => got[k]).map((k) => [k, 'write'])) };
+      if (got.skills) ui.draft.noAbility = false;
+      ui.splitUndo = { draft: before, source: ui.source };
+      setBusy(''); await render();
+      toast(`${Object.keys(got).length}개 칸을 채웠습니다 · 단계마다 「✏️ 요청대로 고치기」로 손보고, 「되돌리기」로 취소할 수 있습니다.`);
+    } finally { setBusy(''); }
+  }));
+  on('#wipeall', (el) => act(async () => {
+    readForm();
+    if (!twice(el, '이름·외모·성격·과거사·스킬·메모·고른 항목을 모두 비웁니다. 이미지·버전 이름·보관함 연결은 남습니다.')) return;
+    const before = clone(ui.draft), keep = {};
+    for (const k of ['id', 'label', 'icon', 'personaId', 'portraitMode', 'portraitId', 'lang', 'tplSet']) keep[k] = ui.draft[k];
+    ui.draft = { ...clone(BLANK), ...keep };
+    ui.splitUndo = { draft: before, source: ui.source }; ui.trText = '';
+    await render();
+    toast('모든 항목을 비웠습니다 · 「되돌리기」로 취소할 수 있습니다.');
+  }));
+  on('[data-undo]', () => act(async () => { ui.draft = ui.splitUndo.draft || ui.splitUndo; ui.source = ui.splitUndo.source || ''; ui.splitUndo = null; await render(); toast('AI 작업 전으로 되돌렸습니다.'); }));
   // language
   on('#langseg [data-lang]', (el) => act(async () => {
     const lang = el.dataset.lang; if (langOf(ui.draft) === lang) return;
@@ -1700,6 +1815,20 @@ function bindEditor($, on) {
       if (!text) { toast('AI가 빈 응답을 보냈습니다. 다시 시도해 주세요.', true); return; }
       d[k] = text; ui.splitUndo = { draft: before, source: ui.source };
       setBusy(''); await render(); toast(`${SECTION_TITLE[k]} 완료 · 마음에 안 들면 다시 누르거나 결과 칸을 고치세요.`);
+    } finally { setBusy(''); }
+  }));
+  on('[data-revise]', (el) => act(async () => {
+    readForm(); const k = el.dataset.revise, req = clean(ui.dir[k]);
+    if (!req) { toast('바꿀 내용을 요청 칸에 먼저 적어 주세요.', true); document.querySelector(`[data-dir="${k}"]`)?.focus(); return; }
+    if (!sectionText(d, k)) { toast(`${SECTION_TITLE[k]} 내용이 아직 없습니다. 먼저 ✨로 쓰거나 직접 적어 주세요.`, true); return; }
+    setBusy(`${SECTION_TITLE[k]} 고치는 중…`);
+    try {
+      const before = clone(d), text = await auxRevise(d, k, req);
+      if (!text) { toast('AI가 빈 응답을 보냈습니다. 다시 시도해 주세요.', true); return; }
+      d[k] = text; d.modes = { ...(d.modes || {}), [k]: 'write' };
+      if (k === 'skills') d.noAbility = false;
+      ui.splitUndo = { draft: before, source: ui.source };
+      setBusy(''); await render(); toast(`${SECTION_TITLE[k]}을(를) 요청대로 고쳤습니다 · 「되돌리기」는 기본 단계 메모 옆에 있습니다.`);
     } finally { setBusy(''); }
   }));
   // skills
