@@ -1,6 +1,6 @@
 //@name persona_forge
 //@api 3.0
-//@version 0.3.0
+//@version 0.3.1
 //@update-url https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/persona-forge.plugin.js
 //@display-name 페르소나 공방
 //@description 성별·시대·나이·종족 같은 토글과 보조 모델로 페르소나를 즉석에서 짜고, 보관함(모듈 로어북)·페르소나 목록·채팅 연결·이미지를 한곳에서 관리합니다.
@@ -22,7 +22,7 @@
  *  - API only, no core patches.
  */
 
-const RELEASE_VERSION = '0.3.0';
+const RELEASE_VERSION = '0.3.1';
 const UPDATE_BASE = 'https://raw.githubusercontent.com/canister2668/Risu-persona-forge/';
 const UPDATE_MANIFEST = UPDATE_BASE + 'main/update/latest.json';
 const newerVersion = (a, b) => { const aa = a.split('.').map(Number), bb = b.split('.').map(Number); for (let i=0;i<3;i++) { if (aa[i] !== bb[i]) return aa[i] > bb[i]; } return false; };
@@ -922,16 +922,19 @@ textarea{line-height:1.8;min-height:100px}textarea.tall{min-height:180px}
  .sheet .opt .sub{margin-left:0}.list .acts .btn{min-height:44px}.menu{left:16px;top:130px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-.sheet.portrait-sheet{max-width:820px}.portrait-layout{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:20px;margin-top:16px}
-.portrait-filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.portrait-filters label{display:flex;align-items:center;gap:6px;min-width:0}.portrait-filters select{min-height:40px;max-width:140px}.portrait-filters .btn{min-height:40px}.portrait-filters .on{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
-.portrait-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:max-content;gap:10px;align-content:start;max-height:52dvh;overflow:auto;padding:3px}
-.portrait-tile{display:block;min-width:0;padding:0;background:var(--input);border:2px solid transparent;border-radius:10px;overflow:hidden;text-align:left;cursor:pointer}
-.portrait-tile:hover{border-color:var(--sub)}.portrait-tile[aria-pressed=true]{border-color:var(--accent);background:var(--accent-bg)}
+.sheet.portrait-sheet{max-width:880px;height:90dvh;max-height:900px;padding:0;overflow:hidden;display:flex;flex-direction:column}
+.portrait-header{padding:20px 22px 14px;flex:none;border-bottom:1px solid var(--line)}.portrait-header p{margin:0}
+.portrait-body{min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:0 22px 20px}
+.portrait-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.portrait-filters label{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap}.portrait-filters select{min-height:40px;max-width:140px}.portrait-filters .btn{min-height:40px}.portrait-filters .on{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.portrait-layout{margin-top:16px}.portrait-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:3px;overflow:visible;max-height:none}
+.portrait-tile{display:block;position:relative;min-width:0;padding:0;background:var(--input);border:2px solid transparent;border-radius:10px;overflow:hidden;text-align:left;cursor:pointer}
+.portrait-tile:hover{border-color:var(--sub)}.portrait-tile[aria-pressed=true]{border-color:var(--accent);background:var(--accent-bg)}.portrait-tile[aria-pressed=true]::after{content:'선택됨';position:absolute;top:8px;right:8px;background:var(--accent);color:#17201b;border-radius:20px;padding:3px 8px;font-size:11px;font-weight:700}
 .portrait-tile img{display:block;width:100%;height:auto;aspect-ratio:13/19;object-fit:cover}.portrait-tile b{display:block;padding:8px 7px;font-size:12px;font-weight:500;line-height:1.5}
-.portrait-detail img{display:block;width:100%;height:auto;aspect-ratio:13/19;object-fit:contain;border-radius:10px;border:1px solid var(--line)}
-.portrait-detail h4{font-size:15px;margin:10px 0 4px}.portrait-detail p{margin:0}.portrait-size{margin-top:8px!important;color:var(--accent)}
-.portrait-status{min-height:20px;margin-top:12px;font-size:12px;color:var(--sub)}.portrait-status.error{color:var(--danger)}
-@media(max-width:599px){.portrait-layout{grid-template-columns:minmax(0,1fr);gap:12px}.portrait-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-height:42dvh}.portrait-detail{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:center}.portrait-detail h4{margin:0 0 4px}.portrait-filters .btn{min-height:44px;flex:1;padding:0 8px}.portrait-tile b{min-height:44px;display:flex;align-items:center}.portrait-sheet .foot{position:sticky;bottom:0;background:var(--surface);padding-top:10px;margin-top:8px}}
+.portrait-bottom{flex:none;padding:12px 22px 16px;background:var(--surface);border-top:1px solid var(--line)}
+.portrait-detail{display:flex;gap:12px;align-items:center;min-height:64px}.portrait-detail img{display:block;width:44px;height:auto;aspect-ratio:13/19;object-fit:contain;border-radius:5px}.portrait-detail h4{font-size:14px;margin:0 0 4px}.portrait-detail p{margin:0}.portrait-detail p:not(.portrait-size){display:none}.portrait-size{font-size:12px;color:var(--sub)}
+.portrait-status{min-height:18px;margin-top:6px;font-size:12px;color:var(--sub)}.portrait-status.error{color:var(--danger)}.portrait-sheet .foot{margin-top:8px;flex-wrap:nowrap}.portrait-sheet .foot .btn{min-height:44px}
+@media(max-width:599px){.sheet.portrait-sheet{height:92dvh;max-height:92dvh}.portrait-header{padding:16px}.portrait-header h3{font-size:17px}.portrait-body{padding:0 12px 16px}.portrait-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.portrait-bottom{padding:10px 16px calc(12px + env(safe-area-inset-bottom))}.portrait-filters .btn{flex:1;padding:0 8px}.portrait-tile b{min-height:44px;display:flex;align-items:center}.portrait-detail img{width:36px}.portrait-detail{min-height:53px}}
+
 `;
 
 const ERA_SHORT = (v) => optLabel('era', v);
@@ -1336,12 +1339,12 @@ function openPortraitLibrary() {
   const draft = ui.draft, previousIcon = draft.icon;
   let selected = PORTRAITS[0], category = '전체', species = '전체', ageGroup = '전체', saving = false;
   const categories = ['전체', ...new Set(PORTRAITS.map((p) => p.category))];
-  openSheet(`<h3>기본 페르소나 이미지</h3><p class="hint" style="margin:0">마음에 드는 그림을 골라 현재 초안에 사용하세요. 이름과 설정은 그대로 유지됩니다.</p>
+  openSheet(`<div class="portrait-header"><h3>기본 이미지 고르기</h3><p class="hint">그림을 선택한 뒤 아래에서 적용하세요.</p></div><div class="portrait-body">
     <div class="portrait-filters" role="group" aria-label="이미지 분류">${categories.map((cat) => `<button type="button" class="btn sm${cat === category ? ' on' : ''}" data-portrait-category="${esc(cat)}" aria-pressed="${cat === category}">${esc(cat)}</button>`).join('')}</div>
     <div class="portrait-filters"><label>종족 <select id="portrait-species" aria-label="종족">${['전체', ...new Set(PORTRAITS.map(p => p.species))].map(v => `<option>${esc(v)}</option>`).join('')}</select></label><label>나이대 <select id="portrait-age" aria-label="나이대">${['전체', '아동', '청소년', '청년', '중년', '노년'].map(v => `<option>${esc(v)}</option>`).join('')}</select></label></div>
-    <div class="portrait-layout"><div class="portrait-grid" role="group" aria-label="페르소나 이미지">${PORTRAITS.map((p) => `<button type="button" class="portrait-tile" data-portrait="${p.id}" aria-label="${esc(p.name)} 선택" aria-pressed="${p === selected}"><img src="${p.thumb}" alt="" width="208" height="304" loading="lazy"><b>${esc(p.name)}</b></button>`).join('')}</div><div class="portrait-detail" id="portrait-detail"></div></div>
-    <div class="portrait-status" id="portrait-status" role="status" aria-live="polite">선택한 그림만 내려받습니다. 저장한 그림은 Risu 에셋으로 남습니다.</div>
-    <div class="foot"><button type="button" class="btn" id="portrait-cancel">취소</button><button type="button" class="btn pri" id="portrait-use" ${selected ? '' : 'disabled'}>이 이미지 사용</button></div>`, (wrap) => {
+    <div class="portrait-layout"><div class="portrait-grid" role="group" aria-label="페르소나 이미지">${PORTRAITS.map((p) => `<button type="button" class="portrait-tile" data-portrait="${p.id}" aria-label="${esc(p.name)} 선택" aria-pressed="${p === selected}"><img src="${p.thumb}" alt="" width="208" height="304" loading="lazy"><b>${esc(p.name)}</b></button>`).join('')}</div></div></div><div class="portrait-bottom"><div class="portrait-detail" id="portrait-detail"></div>
+    <div class="portrait-status" id="portrait-status" role="status" aria-live="polite">선택한 이미지가 현재 초안에 적용됩니다.</div>
+    <div class="foot"><button type="button" class="btn" id="portrait-cancel">취소</button><button type="button" class="btn pri" id="portrait-use" ${selected ? '' : 'disabled'}>이 이미지 사용</button></div></div>`, (wrap) => {
     wrap.querySelector('.sheet').classList.add('portrait-sheet');
     const detail = wrap.querySelector('#portrait-detail'), status = wrap.querySelector('#portrait-status'), use = wrap.querySelector('#portrait-use');
     const show = () => {

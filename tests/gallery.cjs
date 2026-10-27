@@ -55,6 +55,12 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       const beforePreview = await page.locator('#preview2').textContent();
       await open();
       ok(await page.locator('[data-portrait]').count() === manifest.items.length, `${width}: all images available`);
+      ok(await page.evaluate(() => { const nodes=[document.querySelector('.portrait-sheet'),...document.querySelectorAll('.portrait-sheet *')]; const scroll=nodes.filter(e=>/auto|scroll/.test(getComputedStyle(e).overflowY)&&e.scrollHeight>e.clientHeight+1); return scroll.length===1 && scroll[0].classList.contains('portrait-body'); }), `${width}: only one scrolling region in image chooser`);
+      const footerBefore = await page.locator('#portrait-use').boundingBox();
+      await page.locator('.portrait-body').evaluate(e => e.scrollTop=e.scrollHeight);
+      const footerAfter = await page.locator('#portrait-use').boundingBox();
+      ok(Math.abs(footerBefore.y-footerAfter.y)<1 && footerAfter.y+footerAfter.height<=900, `${width}: apply stays visible while browsing`);
+      await page.locator('.portrait-body').evaluate(e => e.scrollTop=0);
       ok(await page.evaluate(() => probe.downloads === 0 && probe.saves === 0), `${width}: gallery loads without network or writes`);
       ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth && document.querySelector('.sheet').getBoundingClientRect().right <= innerWidth), `${width}: gallery fits viewport`);
       ok(await page.evaluate(() => [...document.querySelectorAll('.portrait-tile')].every((tile) => tile.querySelector('b').getBoundingClientRect().bottom <= tile.getBoundingClientRect().bottom + 1)), `${width}: portrait names are not clipped`);
