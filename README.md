@@ -74,4 +74,4 @@ node tests/ai-gen.cjs
 - 버전/해시 매니페스트: https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/update/latest.json
 - 공방 설정 → 업데이트에서 최신 버전을 확인하고 SHA-256 검증된 설치 파일을 받을 수 있습니다. 실제 설치는 RisuAI 설정 → 플러그인의 업데이트 또는 파일 가져오기를 사용합니다.
 - 원본 이미지는 GitHub `templates/personas/`에서 필요할 때만 받습니다.
-- 릴리즈 절차: 버전 헤더와 RELEASE_VERSION을 함께 올리고 `python3 scripts/build-release.py`, `node tests/update.cjs`, `node tests/gallery.cjs`를 실행합니다. 같은 커밋을 main과 v버전 태그로 게시하고 플러그인·소스 ZIP·매니페스트를 GitHub Release에 첨부합니다.
+- 릴리즈 절차: 버전 헤더·표시 이름 끝의 v버전·RELEASE_VERSION을 함께 올리고 `python3 scripts/build-release.py`, `node tests/update.cjs`, `node tests/gallery.cjs`를 실행합니다. 같은 커밋을 main과 v버전 태그로 게시하고 플러그인·소스 ZIP·매니페스트를 GitHub Release에 첨부합니다.

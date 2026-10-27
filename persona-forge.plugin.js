@@ -1,8 +1,8 @@
 //@name persona_forge
 //@api 3.0
-//@version 0.3.2
+//@version 0.3.3
 //@update-url https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/persona-forge.plugin.js
-//@display-name 페르소나 공방
+//@display-name 페르소나 공방 v0.3.3
 //@description 성별·시대·나이·종족 같은 토글과 보조 모델로 페르소나를 즉석에서 짜고, 보관함(모듈 로어북)·페르소나 목록·채팅 연결·이미지를 한곳에서 관리합니다.
 
 /*
@@ -22,7 +22,7 @@
  *  - API only, no core patches.
  */
 
-const RELEASE_VERSION = '0.3.2';
+const RELEASE_VERSION = '0.3.3';
 const UPDATE_BASE = 'https://raw.githubusercontent.com/canister2668/Risu-persona-forge/';
 const UPDATE_MANIFEST = UPDATE_BASE + 'main/update/latest.json';
 const newerVersion = (a, b) => { const aa = a.split('.').map(Number), bb = b.split('.').map(Number); for (let i=0;i<3;i++) { if (aa[i] !== bb[i]) return aa[i] > bb[i]; } return false; };
