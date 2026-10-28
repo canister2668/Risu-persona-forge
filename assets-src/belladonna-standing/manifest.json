@@ -1,0 +1,2229 @@
+{
+  "project": "페르소나 공방 스탠딩 - 벨라도나 V5",
+  "sceneCount": 50,
+  "imageCount": 59,
+  "items": [
+    {
+      "scene": "P01_도윤_인간_1_아동_스탠딩",
+      "characterId": "P01",
+      "name": "도윤",
+      "species": "human",
+      "gender": "male",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "human/male/child/1793189863276_fdf997e3.png",
+          "sourceFile": "1793189863276_fdf997e3.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1355423,
+          "sha256": "5035d6d72c14c8ffe5cadedf40d3502b2bef00d0cd4b215671f82752fe8a74e4"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "76379a5f-7113-46cf-a067-f44bf9edabc2",
+          "name": "P01 도윤 / 아동",
+          "prompt": "1boy, human, black hair, short hair, side-parted hair, grey eyes, straight eyebrows, child, 10 years old, round face, navy jacket, white shirt, trousers, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, quiet residential street, tree-lined sidewalk, brick buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "343b2bba-8b03-4bfe-b84c-e6ea1f48e367",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P01_도윤_인간_2_청소년_스탠딩",
+      "characterId": "P01",
+      "name": "도윤",
+      "species": "human",
+      "gender": "male",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "human/male/teen/1793188453262_c0f3a750.png",
+          "sourceFile": "1793188453262_c0f3a750.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1262088,
+          "sha256": "3d569cad99d1bb04a7ff0d91bb39fac0d901f9de3393b17f7633725dc520686c"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "c6457230-7066-4ae7-8ad7-bbe7c7e29ee7",
+          "name": "P01 도윤 / 청소년",
+          "prompt": "1boy, human, black hair, short hair, side-parted hair, grey eyes, straight eyebrows, teenager, 16 years old, youthful face, navy jacket, white shirt, trousers, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, adolescent proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, quiet residential street, tree-lined sidewalk, brick buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "111ca1cc-322c-4ebf-9e0e-74e13ea883c4",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P01_도윤_인간_3_청년_스탠딩",
+      "characterId": "P01",
+      "name": "도윤",
+      "species": "human",
+      "gender": "male",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "human/male/young-adult/1793189043398_3021df4a.png",
+          "sourceFile": "1793189043398_3021df4a.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1289909,
+          "sha256": "d3e38f30eabbd7310e302fbbc141a7dfcaaf0eadbfb7312b2862de555bc48544"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "804e9ded-dffd-44cf-9552-09ea725d926c",
+          "name": "P01 도윤 / 청년",
+          "prompt": "1boy, human, black hair, short hair, side-parted hair, grey eyes, straight eyebrows, adult, 26 years old, navy jacket, white shirt, trousers, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, adult man, masculine build",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, quiet residential street, tree-lined sidewalk, brick buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "ff5a750b-3cb8-465c-ab32-db54582e00e0",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P01_도윤_인간_4_중년_스탠딩",
+      "characterId": "P01",
+      "name": "도윤",
+      "species": "human",
+      "gender": "male",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "human/male/middle-aged/1793192595236_d1ed40a1.png",
+          "sourceFile": "1793192595236_d1ed40a1.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1303606,
+          "sha256": "51415350db16599d1907b47d546d81a565443fe2c328a60ebc8525e57b5d65ba"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "5f513d82-3846-454c-8488-9a646d75404c",
+          "name": "P01 도윤 / 중년",
+          "prompt": "1boy, human, black hair, short hair, side-parted hair, grey eyes, straight eyebrows, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, navy jacket, white shirt, trousers, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, adult man, masculine build",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, quiet residential street, tree-lined sidewalk, brick buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "1319c84e-578f-4378-b147-2e71b1c70495",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P01_도윤_인간_5_노년_스탠딩",
+      "characterId": "P01",
+      "name": "도윤",
+      "species": "human",
+      "gender": "male",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "human/male/elder/1793192695722_ba4b2757.png",
+          "sourceFile": "1793192695722_ba4b2757.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1355902,
+          "sha256": "798d24df325835f393361f12a1469331b4f0865b15c77c3d2718093048b2511f"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "2430c69c-f232-434b-b60a-dbe25a115680",
+          "name": "P01 도윤 / 노년",
+          "prompt": "1boy, human, black hair, short hair, side-parted hair, grey eyes, straight eyebrows, elderly, 74 years old, grey hair streaks, navy jacket, white shirt, trousers, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, adult man, masculine build, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, quiet residential street, tree-lined sidewalk, brick buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "95557904-1f82-4e40-ae79-649c640620d0",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P02_서연_인간_1_아동_스탠딩",
+      "characterId": "P02",
+      "name": "서연",
+      "species": "human",
+      "gender": "female",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "human/female/child/1793188453269_d2ecfbc5.png",
+          "sourceFile": "1793188453269_d2ecfbc5.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1518144,
+          "sha256": "f2072335062222ad3bdec4d64d54c1caf3db4fdd1a97bf657326a3d0399548b1"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "902ce318-0156-432e-b883-1fab9b880290",
+          "name": "P02 서연 / 아동",
+          "prompt": "1girl, human, chestnut hair, bob cut, brown eyes, hairclip, child, 10 years old, round face, sage green cardigan, white blouse, long skirt, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, garden courtyard, flower beds, wooden fence, leafy trees, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "010e2d2f-c626-4d4c-9d69-ab28d4697171",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P02_서연_인간_2_청소년_스탠딩",
+      "characterId": "P02",
+      "name": "서연",
+      "species": "human",
+      "gender": "female",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "human/female/teen/1793189880167_de0adb79.png",
+          "sourceFile": "1793189880167_de0adb79.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1402969,
+          "sha256": "091d79057802d603afc1d0799a04ea3814ef9922183915aad3c7ca8eaa60caac"
+        },
+        {
+          "file": "human/female/teen/1793192090899_5b872877.png",
+          "sourceFile": "1793192090899_5b872877.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1354999,
+          "sha256": "f893696ecb79b4f7b41569b39bcfca767cb48517781772bd98cb281c686b6574"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "57aba5aa-ab41-4819-99e5-9fa94dafed8c",
+          "name": "P02 서연 / 청소년",
+          "prompt": "1girl, human, chestnut hair, bob cut, brown eyes, hairclip, teenager, 16 years old, youthful face, sage green cardigan, white blouse, long skirt, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, adolescent proportions, small breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, garden courtyard, flower beds, wooden fence, leafy trees, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "d64ede27-10f7-4f92-b33b-01c421e0d3d5",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P02_서연_인간_3_청년_스탠딩",
+      "characterId": "P02",
+      "name": "서연",
+      "species": "human",
+      "gender": "female",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "human/female/young-adult/1793189511120_c85ed2f4.png",
+          "sourceFile": "1793189511120_c85ed2f4.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1401961,
+          "sha256": "11702c5e6c5b13b1d31763e710c9e781185290dbc4bfc563b30aad5588d1db3b"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "fe8c0648-318f-4bc4-a340-90e63a89c14e",
+          "name": "P02 서연 / 청년",
+          "prompt": "1girl, human, chestnut hair, bob cut, brown eyes, hairclip, adult, 26 years old, sage green cardigan, white blouse, long skirt, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, adult woman, feminine build, medium breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, garden courtyard, flower beds, wooden fence, leafy trees, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "8a9f789e-aea4-442a-8130-907039902bae",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P02_서연_인간_4_중년_스탠딩",
+      "characterId": "P02",
+      "name": "서연",
+      "species": "human",
+      "gender": "female",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "human/female/middle-aged/1793188453270_c652a892.png",
+          "sourceFile": "1793188453270_c652a892.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1524304,
+          "sha256": "2a260ce957c44cb59945ca07a4852b5d384df2284e34efa0dcd5b6340a6b87ab"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "0198c729-9c42-4798-ab01-f1dceb116078",
+          "name": "P02 서연 / 중년",
+          "prompt": "1girl, human, chestnut hair, bob cut, brown eyes, hairclip, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, sage green cardigan, white blouse, long skirt, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, adult woman, feminine build, medium breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, garden courtyard, flower beds, wooden fence, leafy trees, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "78afcac9-2d04-41bf-b1d6-4e94bda4d8c8",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P02_서연_인간_5_노년_스탠딩",
+      "characterId": "P02",
+      "name": "서연",
+      "species": "human",
+      "gender": "female",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "human/female/elder/1793190408123_c69f442b.png",
+          "sourceFile": "1793190408123_c69f442b.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1355623,
+          "sha256": "9a5855eee5ba52b77832d49ee022a766a04f4086f9a9395788e891f81bac2626"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "19a75b37-f7c4-4ca6-9bc3-5f7b36dd46e4",
+          "name": "P02 서연 / 노년",
+          "prompt": "1girl, human, chestnut hair, bob cut, brown eyes, hairclip, elderly, 74 years old, grey hair streaks, sage green cardigan, white blouse, long skirt, brown shoes, fully clothed, closed mouth, gentle smile, average build, balanced proportions, adult woman, feminine build, medium breasts, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, garden courtyard, flower beds, wooden fence, leafy trees, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "9ec17cd3-387f-4a7b-a508-7afa5b22b748",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P03_리안_엘프_1_아동_스탠딩",
+      "characterId": "P03",
+      "name": "리안",
+      "species": "elf",
+      "gender": "male",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "elf/male/child/1793188453271_acf848f7.png",
+          "sourceFile": "1793188453271_acf848f7.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1453422,
+          "sha256": "5de8bbbad2776df00576a615bf1d95509a87829fd360c79660e9d4f11c30c888"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "08589efc-c617-489a-8c5b-0023871436f8",
+          "name": "P03 리안 / 아동",
+          "prompt": "1boy, elf, pointy ears, copper hair, shoulder-length hair, green eyes, side braid, child, 10 years old, round face, forest green cloak, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, forest path, tall trees, green foliage, dappled sunlight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "0e8187f3-5ac5-49fa-9b62-8cab2c906c62",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P03_리안_엘프_2_청소년_스탠딩",
+      "characterId": "P03",
+      "name": "리안",
+      "species": "elf",
+      "gender": "male",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "elf/male/teen/1793188453271_8ce15bfd.png",
+          "sourceFile": "1793188453271_8ce15bfd.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1382552,
+          "sha256": "9a7976412e24c16538fbcd0028c7f9491f84e786bdea67fcf381e82efbec3274"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "ba6e6964-5442-432c-9c57-576d8e4784e0",
+          "name": "P03 리안 / 청소년",
+          "prompt": "1boy, elf, pointy ears, copper hair, shoulder-length hair, green eyes, side braid, teenager, 16 years old, youthful face, forest green cloak, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, adolescent proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, forest path, tall trees, green foliage, dappled sunlight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "41188e00-8bc4-489f-86bf-7cca6c27a631",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P03_리안_엘프_3_청년_스탠딩",
+      "characterId": "P03",
+      "name": "리안",
+      "species": "elf",
+      "gender": "male",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "elf/male/young-adult/1793189863301_07e07f63.png",
+          "sourceFile": "1793189863301_07e07f63.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1403384,
+          "sha256": "1ac45effd78cc622cdf09ee5c9bc82953ce0451e336d30ce6b18da684b3d51b8"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "d6391aab-7241-404b-9ec5-26973d43ad47",
+          "name": "P03 리안 / 청년",
+          "prompt": "1boy, elf, pointy ears, copper hair, shoulder-length hair, green eyes, side braid, adult, 26 years old, forest green cloak, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, adult man, masculine build",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, forest path, tall trees, green foliage, dappled sunlight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "9f7be26b-8bc4-453f-87ea-559903cdadb6",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P03_리안_엘프_4_중년_스탠딩",
+      "characterId": "P03",
+      "name": "리안",
+      "species": "elf",
+      "gender": "male",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "elf/male/middle-aged/1793190403405_3652d9dc.png",
+          "sourceFile": "1793190403405_3652d9dc.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1398696,
+          "sha256": "302eba773ad1828a169ca9069495a6b5624c8c311db961a9b53d7bb702f6021e"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "3af0b6b2-c1f5-456a-84e0-b59fc35467c4",
+          "name": "P03 리안 / 중년",
+          "prompt": "1boy, elf, pointy ears, copper hair, shoulder-length hair, green eyes, side braid, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, forest green cloak, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, adult man, masculine build",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, forest path, tall trees, green foliage, dappled sunlight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "79e3ec03-edea-49ae-ad2a-01c9d4b7dd8e",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P03_리안_엘프_5_노년_스탠딩",
+      "characterId": "P03",
+      "name": "리안",
+      "species": "elf",
+      "gender": "male",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "elf/male/elder/1793190403147_5f403c6e.png",
+          "sourceFile": "1793190403147_5f403c6e.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1393946,
+          "sha256": "2b64b6f1ff95d58b1766a18b1c33d7222530690bc542259e6c37b510cc7cbfb8"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "760e5121-56ad-4e67-bc52-57b498a07899",
+          "name": "P03 리안 / 노년",
+          "prompt": "1boy, elf, pointy ears, copper hair, shoulder-length hair, green eyes, side braid, elderly, 74 years old, grey hair streaks, forest green cloak, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, adult man, masculine build, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, forest path, tall trees, green foliage, dappled sunlight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "948f7b59-d83e-4981-a4e6-0bd85547f691",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P04_엘린_엘프_1_아동_스탠딩",
+      "characterId": "P04",
+      "name": "엘린",
+      "species": "elf",
+      "gender": "female",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "elf/female/child/1793189863302_97bdec27.png",
+          "sourceFile": "1793189863302_97bdec27.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1483217,
+          "sha256": "67d1a451d70083c82809606a2acc58483c1df8ad3883de5f353ef9276f4aa482"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "74ce6661-e1bd-4d45-8aae-160c2a36fb5c",
+          "name": "P04 엘린 / 아동",
+          "prompt": "1girl, elf, pointy ears, silver hair, long hair, amber eyes, braided sidelocks, child, 10 years old, round face, navy cloak, ivory long dress, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient stone courtyard, ivy-covered arches, garden, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "15a4800f-85bd-4fb0-95c7-5cca15e9fcb6",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P04_엘린_엘프_2_청소년_스탠딩",
+      "characterId": "P04",
+      "name": "엘린",
+      "species": "elf",
+      "gender": "female",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "elf/female/teen/1793189863303_cad1d1c9.png",
+          "sourceFile": "1793189863303_cad1d1c9.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1495323,
+          "sha256": "648ed959b805dc1f886c1c5fba35b3c053c13ff0b30e81c5a878f70f67089972"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "dc07ded2-44ca-46d6-acfa-6182a7662659",
+          "name": "P04 엘린 / 청소년",
+          "prompt": "1girl, elf, pointy ears, silver hair, long hair, amber eyes, braided sidelocks, teenager, 16 years old, youthful face, navy cloak, ivory long dress, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, adolescent proportions, small breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient stone courtyard, ivy-covered arches, garden, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "2bde9bfc-a0c0-4b01-ad4f-7bf5401f8581",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P04_엘린_엘프_3_청년_스탠딩",
+      "characterId": "P04",
+      "name": "엘린",
+      "species": "elf",
+      "gender": "female",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "elf/female/young-adult/1793189863303_1ec34da3.png",
+          "sourceFile": "1793189863303_1ec34da3.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1511243,
+          "sha256": "bef2b2c2f51f1d9008f4e141c7dfbe9be97c4466c460de6e335f17255c5ea691"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "2afeda21-85df-4c52-9c36-c31116f72898",
+          "name": "P04 엘린 / 청년",
+          "prompt": "1girl, elf, pointy ears, silver hair, long hair, amber eyes, braided sidelocks, adult, 26 years old, navy cloak, ivory long dress, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, adult woman, feminine build, medium breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient stone courtyard, ivy-covered arches, garden, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "8a983a07-5669-4028-a866-2146e4eee0dc",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P04_엘린_엘프_4_중년_스탠딩",
+      "characterId": "P04",
+      "name": "엘린",
+      "species": "elf",
+      "gender": "female",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "elf/female/middle-aged/1793190415330_7b5509d7.png",
+          "sourceFile": "1793190415330_7b5509d7.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1449851,
+          "sha256": "d7cb0d7156405ec6dbd58d83612faca82cb06501cd6f5decfc14b5ffd0895124"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "35f45cdd-f203-408d-b172-1594ed960e05",
+          "name": "P04 엘린 / 중년",
+          "prompt": "1girl, elf, pointy ears, silver hair, long hair, amber eyes, braided sidelocks, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, navy cloak, ivory long dress, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, adult woman, feminine build, medium breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient stone courtyard, ivy-covered arches, garden, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "d1826d2b-02f1-4cea-b805-18ac77ca852a",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P04_엘린_엘프_5_노년_스탠딩",
+      "characterId": "P04",
+      "name": "엘린",
+      "species": "elf",
+      "gender": "female",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "elf/female/elder/1793190492616_6e590fa2.png",
+          "sourceFile": "1793190492616_6e590fa2.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1397094,
+          "sha256": "477416604e8b57d4018925f7ea3befb2bd148741b4cd26f8b82f191aac5c78e8"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "fd592af9-e377-424b-a269-04ebd68471f9",
+          "name": "P04 엘린 / 노년",
+          "prompt": "1girl, elf, pointy ears, silver hair, long hair, amber eyes, braided sidelocks, elderly, 74 years old, grey hair streaks, navy cloak, ivory long dress, leather boots, fully clothed, closed mouth, gentle smile, slender build, graceful posture, adult woman, feminine build, medium breasts, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient stone courtyard, ivy-covered arches, garden, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "6390ec32-a040-4635-8f15-53a27afbdb8a",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P05_브란_드워프_1_아동_스탠딩",
+      "characterId": "P05",
+      "name": "브란",
+      "species": "dwarf",
+      "gender": "male",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "dwarf/male/child/1793191417243_9defe274.png",
+          "sourceFile": "1793191417243_9defe274.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1279326,
+          "sha256": "7aef95040c4dd613b991e7e37a9806dc9589d89032892e32b8e705af3241cf74"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "0c575c1d-fb43-44bd-86ec-78697ae657f1",
+          "name": "P05 브란 / 아동",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1boy, auburn hair, short braided hair, hazel eyes, freckles, broad nose, child, 10 years old, round face, teal tunic, leather apron, trousers, work boots, fully clothed, closed mouth, gentle smile, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, stone workshop, wooden workbench, tools on wall, shelves, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "112db46e-fd64-432a-a147-855b017c9f63",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P05_브란_드워프_2_청소년_스탠딩",
+      "characterId": "P05",
+      "name": "브란",
+      "species": "dwarf",
+      "gender": "male",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "dwarf/male/teen/1793189863305_4250b8b2.png",
+          "sourceFile": "1793189863305_4250b8b2.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1331339,
+          "sha256": "81e3322221ae228bc2b5b3602df31432822172f06aed9436861038e07c8d79ce"
+        },
+        {
+          "file": "dwarf/male/teen/1793190042411_742bee84.png",
+          "sourceFile": "1793190042411_742bee84.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1320842,
+          "sha256": "f255dc962adfb6aa08154941db11a81e91db6d8dfa0c9be6f80f39d6419a48a8"
+        },
+        {
+          "file": "dwarf/male/teen/1793190418123_488b7340.png",
+          "sourceFile": "1793190418123_488b7340.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1268146,
+          "sha256": "bb1b79f9192077210e441631446f6f9d9968fbf8cadef54902f9f3c4831f34d0"
+        },
+        {
+          "file": "dwarf/male/teen/1793191109204_ed64b171.png",
+          "sourceFile": "1793191109204_ed64b171.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1310987,
+          "sha256": "0b596168fa6509ed9222da3c52dc81ecf45ca3b41ba43f356b08c69b6162f8fb"
+        },
+        {
+          "file": "dwarf/male/teen/1793191411515_2eebd3bc.png",
+          "sourceFile": "1793191411515_2eebd3bc.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1291403,
+          "sha256": "dbbaad170dd2ba1d1fdcc3614369c7eff0327a39be334552eee98e63ff72ea02"
+        },
+        {
+          "file": "dwarf/male/teen/1793191537864_4a06dd98.png",
+          "sourceFile": "1793191537864_4a06dd98.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1271491,
+          "sha256": "2080f822b0c93b13addc82770abfb128a689014eb180b1ed08a098934a9cd9a2"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "602c0aab-8c9b-473c-8c3b-77432494c5dc",
+          "name": "P05 브란 / 청소년",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1boy, auburn hair, short braided hair, hazel eyes, freckles, broad nose, teenager, 16 years old, youthful face, teal tunic, leather apron, trousers, work boots, fully clothed, closed mouth, gentle smile, adolescent proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, stone workshop, wooden workbench, tools on wall, shelves, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "65b449f9-ac90-4d64-b030-761ea1d54adb",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P05_브란_드워프_3_청년_스탠딩",
+      "characterId": "P05",
+      "name": "브란",
+      "species": "dwarf",
+      "gender": "male",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "dwarf/male/young-adult/1793192339646_cbe3f546.png",
+          "sourceFile": "1793192339646_cbe3f546.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1271482,
+          "sha256": "16a88be9edc508a16ff6082bc573c0d6474dc4180e01b45f54989c1bf05f8c9c"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "73577f18-0e80-4bde-83c6-4716a2b23240",
+          "name": "P05 브란 / 청년",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1boy, auburn hair, short braided hair, hazel eyes, freckles, broad nose, adult, 26 years old, teal tunic, leather apron, trousers, work boots, fully clothed, closed mouth, gentle smile, adult man, masculine build, 1.3::handsome face, refined masculine facial features::, defined jawline, symmetrical face, expressive eyes, well-groomed hair, 1.3::beard::, mustache, well-groomed beard",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body, unkempt hair, exaggerated facial features",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, stone workshop, wooden workbench, tools on wall, shelves, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "90e5fc57-7b93-4005-83cf-762d388d9df0",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P05_브란_드워프_4_중년_스탠딩",
+      "characterId": "P05",
+      "name": "브란",
+      "species": "dwarf",
+      "gender": "male",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "dwarf/male/middle-aged/1793192298522_fdb7579d.png",
+          "sourceFile": "1793192298522_fdb7579d.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1274663,
+          "sha256": "1eecc16e7e21fa9843e44764c5535299db6d5ce0c042c1cdee79d0d253a68f7c"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "34d6589d-6819-4153-827a-59cc67b912a3",
+          "name": "P05 브란 / 중년",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1boy, auburn hair, short braided hair, hazel eyes, freckles, broad nose, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, teal tunic, leather apron, trousers, work boots, fully clothed, closed mouth, gentle smile, adult man, masculine build, 1.3::beard::, mustache, well-groomed beard",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, stone workshop, wooden workbench, tools on wall, shelves, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "dc286ba0-1621-402e-a691-ca8c76f730fe",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P05_브란_드워프_5_노년_스탠딩",
+      "characterId": "P05",
+      "name": "브란",
+      "species": "dwarf",
+      "gender": "male",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "dwarf/male/elder/1793192103921_e722c0f1.png",
+          "sourceFile": "1793192103921_e722c0f1.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1336754,
+          "sha256": "947d3de6cd1a81de1c913db6e399ddcb06439707e60954c9ff6ed5ccc42ff0f0"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "bfe5ddc9-52f1-4f8a-9a78-941539e4ac33",
+          "name": "P05 브란 / 노년",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1boy, auburn hair, short braided hair, hazel eyes, freckles, broad nose, elderly, 74 years old, grey hair streaks, teal tunic, leather apron, trousers, work boots, fully clothed, closed mouth, gentle smile, adult man, masculine build, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes, 1.3::beard::, mustache, well-groomed beard",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, stone workshop, wooden workbench, tools on wall, shelves, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "05f95ac5-da90-4158-b055-da9fffc98239",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P06_미라_드워프_1_아동_스탠딩",
+      "characterId": "P06",
+      "name": "미라",
+      "species": "dwarf",
+      "gender": "female",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "dwarf/female/child/1793189863308_f6d129ab.png",
+          "sourceFile": "1793189863308_f6d129ab.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1316497,
+          "sha256": "9cec36d8547f742ca5a23c59f091a394d4603c0688168b7da3a7d349fb06989d"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "4f8fb597-73cf-4fb0-b5a8-686b82b74c1a",
+          "name": "P06 미라 / 아동",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1girl, auburn hair, twin braids, hazel eyes, freckles, broad nose, child, 10 years old, round face, teal tunic, leather apron, long skirt, work boots, fully clothed, closed mouth, gentle smile, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, artisan workshop, wooden shelves, crafting tools, stone wall, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "4fac02dc-a166-4252-acca-aacdf6054f72",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P06_미라_드워프_2_청소년_스탠딩",
+      "characterId": "P06",
+      "name": "미라",
+      "species": "dwarf",
+      "gender": "female",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "dwarf/female/teen/1793191254486_dd5e3e6a.png",
+          "sourceFile": "1793191254486_dd5e3e6a.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1261755,
+          "sha256": "a8c6d3c679cf2313a5dbc670d05d7cd0778892d84167b0c8e05eaad598f6c07f"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "67195ca4-3eb1-4d18-8a33-e5faaf67158e",
+          "name": "P06 미라 / 청소년",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1girl, auburn hair, twin braids, hazel eyes, freckles, broad nose, teenager, 16 years old, youthful face, teal tunic, leather apron, long skirt, work boots, fully clothed, closed mouth, gentle smile, adolescent proportions, medium breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, artisan workshop, wooden shelves, crafting tools, stone wall, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "15ab4546-7303-4a9f-9b41-24c2894da3b2",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P06_미라_드워프_3_청년_스탠딩",
+      "characterId": "P06",
+      "name": "미라",
+      "species": "dwarf",
+      "gender": "female",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "dwarf/female/young-adult/1793191177434_0ab7fe5e.png",
+          "sourceFile": "1793191177434_0ab7fe5e.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1251681,
+          "sha256": "35dea5723ebfa6043baa2dabed26e906b240fe6fde214ed81bbe81539417d3a6"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "b769a6f7-e238-4cae-90cf-f56c4dd78108",
+          "name": "P06 미라 / 청년",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1girl, auburn hair, twin braids, hazel eyes, freckles, broad nose, adult, 26 years old, teal tunic, leather apron, long skirt, work boots, fully clothed, closed mouth, gentle smile, adult woman, feminine build, large breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, artisan workshop, wooden shelves, crafting tools, stone wall, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "21b1efcd-9f12-4a35-867b-b45f2e9bf01d",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P06_미라_드워프_4_중년_스탠딩",
+      "characterId": "P06",
+      "name": "미라",
+      "species": "dwarf",
+      "gender": "female",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "dwarf/female/middle-aged/1793191382932_29b390e1.png",
+          "sourceFile": "1793191382932_29b390e1.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1262635,
+          "sha256": "42582911e839c0c47758507c997a6c1c67870c3d0572a350cc03d24e6dec35df"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "b702e089-a5db-4fb7-bf36-0c600a711e06",
+          "name": "P06 미라 / 중년",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1girl, auburn hair, twin braids, hazel eyes, freckles, broad nose, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, teal tunic, leather apron, long skirt, work boots, fully clothed, closed mouth, gentle smile, adult woman, feminine build, large breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, artisan workshop, wooden shelves, crafting tools, stone wall, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "ca46a2a0-e08a-41bd-9696-e897574309f0",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P06_미라_드워프_5_노년_스탠딩",
+      "characterId": "P06",
+      "name": "미라",
+      "species": "dwarf",
+      "gender": "female",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "dwarf/female/elder/1793192108330_77308806.png",
+          "sourceFile": "1793192108330_77308806.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1251816,
+          "sha256": "ba8fb9d821e5fc345f7ea6fea87afb1d3e5b06b026af9ba3cb6686c620488dcc"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "e419e6ce-fe80-4af7-801d-6f41c04e883c",
+          "name": "P06 미라 / 노년",
+          "prompt": "1.5::dwarf, very short stature, stocky build, short torso, short arms::, broad torso, thick forearms, short legs, compact proportions, 1girl, auburn hair, twin braids, hazel eyes, freckles, broad nose, elderly, 74 years old, grey hair streaks, teal tunic, leather apron, long skirt, work boots, fully clothed, closed mouth, gentle smile, adult woman, feminine build, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes, large breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, tall stature, slender build, long torso, long arms, long legs, elongated body",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, indoors, artisan workshop, wooden shelves, crafting tools, stone wall, window light, depth of field, blurred background , 1.3::short compact torso, broad shoulders, short thick arms::",
+            "characterPrompts": [],
+            "id": "27343a60-30a9-42d2-9a63-08e3048a19b2",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P07_루안_여우 수인_1_아동_스탠딩",
+      "characterId": "P07",
+      "name": "루안",
+      "species": "fox",
+      "gender": "male",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "fox/male/child/1793189863310_80dee1d8.png",
+          "sourceFile": "1793189863310_80dee1d8.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1364635,
+          "sha256": "33894c97b47f71f9b95fee32cc12fbaf2e80bb06ef241182b75ad279d61e9ab2"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "b2ba9bd6-41fc-4b3b-a6e6-5fe43522de29",
+          "name": "P07 루안 / 아동",
+          "prompt": "1boy, fox ears, fox tail, animal ear fluff, russet hair, medium hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, child, 10 years old, round face, rust red coat, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, autumn village street, timber-framed houses, autumn leaves, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "99066d05-1921-4dd0-a458-d68dfb76c9ea",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P07_루안_여우 수인_2_청소년_스탠딩",
+      "characterId": "P07",
+      "name": "루안",
+      "species": "fox",
+      "gender": "male",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "fox/male/teen/1793189863312_58697e4e.png",
+          "sourceFile": "1793189863312_58697e4e.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1454081,
+          "sha256": "6119e3e17628077809155d9a0c527b1f572d621bc8638b56569d82ceb100c26f"
+        },
+        {
+          "file": "fox/male/teen/1793190505334_98cbd1d3.png",
+          "sourceFile": "1793190505334_98cbd1d3.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1382701,
+          "sha256": "a3dc2a7373c9c834a05bbf84eadd1d008f3aa0a5473d33d7cfb6ef392e5dcb94"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "922644ab-6e4a-4e3c-8e0b-9ddf767698d4",
+          "name": "P07 루안 / 청소년",
+          "prompt": "1boy, fox ears, fox tail, animal ear fluff, russet hair, medium hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, teenager, 16 years old, youthful face, rust red coat, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, adolescent proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, autumn village street, timber-framed houses, autumn leaves, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "7bc4d9fa-67fb-41a7-af84-8c8372c0a75c",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P07_루안_여우 수인_3_청년_스탠딩",
+      "characterId": "P07",
+      "name": "루안",
+      "species": "fox",
+      "gender": "male",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "fox/male/young-adult/1793189863315_d7ad5a4a.png",
+          "sourceFile": "1793189863315_d7ad5a4a.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1489493,
+          "sha256": "f9d8d31860b64a2587c0319a937b3afe5c2e001bbcf8adf87dfdc8602e9b44f5"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "301078c5-1867-4abe-b885-4a1f374165e9",
+          "name": "P07 루안 / 청년",
+          "prompt": "1boy, fox ears, fox tail, animal ear fluff, russet hair, medium hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, adult, 26 years old, rust red coat, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, adult man, masculine build",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, autumn village street, timber-framed houses, autumn leaves, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "012faa9d-05ac-42e0-89fa-553d896796b5",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P07_루안_여우 수인_4_중년_스탠딩",
+      "characterId": "P07",
+      "name": "루안",
+      "species": "fox",
+      "gender": "male",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "fox/male/middle-aged/1793189863318_bcabb0d0.png",
+          "sourceFile": "1793189863318_bcabb0d0.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1400503,
+          "sha256": "f36564a3eab403a5e22eb89f0e780160824ed02b8e0c2adf957866f8c59d5e8d"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "5107979b-9a9b-4256-a13e-81ecf29285b0",
+          "name": "P07 루안 / 중년",
+          "prompt": "1boy, fox ears, fox tail, animal ear fluff, russet hair, medium hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, rust red coat, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, adult man, masculine build",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, autumn village street, timber-framed houses, autumn leaves, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "7c263294-965d-4370-9284-ce0c8242282b",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P07_루안_여우 수인_5_노년_스탠딩",
+      "characterId": "P07",
+      "name": "루안",
+      "species": "fox",
+      "gender": "male",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "fox/male/elder/1793190428802_755352ff.png",
+          "sourceFile": "1793190428802_755352ff.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1428226,
+          "sha256": "2cb3052f46923c5f9086184c66bc5d15b7116575c95658986db7c40239bd69df"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "2c14ca9f-4910-48ad-a510-e9d5e22ab636",
+          "name": "P07 루안 / 노년",
+          "prompt": "1boy, fox ears, fox tail, animal ear fluff, russet hair, medium hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, elderly, 74 years old, grey hair streaks, rust red coat, cream tunic, trousers, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, adult man, masculine build, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, autumn village street, timber-framed houses, autumn leaves, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "4ca77827-063d-4211-8858-c0bfeb824a49",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P08_루아_여우 수인_1_아동_스탠딩",
+      "characterId": "P08",
+      "name": "루아",
+      "species": "fox",
+      "gender": "female",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "fox/female/child/1793189863320_30b9e68e.png",
+          "sourceFile": "1793189863320_30b9e68e.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1416348,
+          "sha256": "ca952403f5e70b2e564e5429e6e786125b8525caba7369ff340eb4933e8e7cd5"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "c99ba013-f48c-4a20-903a-550561075605",
+          "name": "P08 루아 / 아동",
+          "prompt": "1girl, fox ears, fox tail, animal ear fluff, russet hair, long hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, child, 10 years old, round face, rust red coat, cream tunic, long skirt, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, village square, stone fountain, autumn trees, timber-framed buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "7f7ba763-0617-4417-8f94-d5f6eb51797c",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P08_루아_여우 수인_2_청소년_스탠딩",
+      "characterId": "P08",
+      "name": "루아",
+      "species": "fox",
+      "gender": "female",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "fox/female/teen/1793189863321_bc81d6a3.png",
+          "sourceFile": "1793189863321_bc81d6a3.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1432333,
+          "sha256": "432ebf9d735a9b70513b5a5e2d1dd4d8a0343682f46271f09d9ae816929e6bd0"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "cba6819b-69db-43b7-808f-92c316ae3753",
+          "name": "P08 루아 / 청소년",
+          "prompt": "1girl, fox ears, fox tail, animal ear fluff, russet hair, long hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, teenager, 16 years old, youthful face, rust red coat, cream tunic, long skirt, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, adolescent proportions, small breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, village square, stone fountain, autumn trees, timber-framed buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "3f714bff-b342-45b4-a595-b3f36204342e",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P08_루아_여우 수인_3_청년_스탠딩",
+      "characterId": "P08",
+      "name": "루아",
+      "species": "fox",
+      "gender": "female",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "fox/female/young-adult/1793189863324_9596d6ea.png",
+          "sourceFile": "1793189863324_9596d6ea.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1360902,
+          "sha256": "313c19ee9be3209bc04ccf97ec231460dc2842a464b540504db287722a85fbca"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "3f556a65-37cb-40ad-b14d-29dcb0395f2d",
+          "name": "P08 루아 / 청년",
+          "prompt": "1girl, fox ears, fox tail, animal ear fluff, russet hair, long hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, adult, 26 years old, rust red coat, cream tunic, long skirt, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, adult woman, feminine build, small breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, village square, stone fountain, autumn trees, timber-framed buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "56598707-fdeb-4d20-a3a8-d497403ae26a",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P08_루아_여우 수인_4_중년_스탠딩",
+      "characterId": "P08",
+      "name": "루아",
+      "species": "fox",
+      "gender": "female",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "fox/female/middle-aged/1793189863325_2769af36.png",
+          "sourceFile": "1793189863325_2769af36.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1483596,
+          "sha256": "ee5d19e0a8ddb20aebd16f498763492886d9b5bbf8aed9535e1c0cbe75a0d04b"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "1d7141d9-d5c0-485e-b1f2-e679ff995a55",
+          "name": "P08 루아 / 중년",
+          "prompt": "1girl, fox ears, fox tail, animal ear fluff, russet hair, long hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, rust red coat, cream tunic, long skirt, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, adult woman, feminine build, small breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, village square, stone fountain, autumn trees, timber-framed buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "d7aa4d16-e77c-49e3-92d4-117fcbb95be1",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P08_루아_여우 수인_5_노년_스탠딩",
+      "characterId": "P08",
+      "name": "루아",
+      "species": "fox",
+      "gender": "female",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "fox/female/elder/1793189863326_ce6bfb9f.png",
+          "sourceFile": "1793189863326_ce6bfb9f.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1345051,
+          "sha256": "db9b24e5350c4ba4551fbe7abc86fc41683b709e3ac191126f0ead5745c70ba4"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "3dafd282-0519-45e2-995d-ab9066dc4ec8",
+          "name": "P08 루아 / 노년",
+          "prompt": "1girl, fox ears, fox tail, animal ear fluff, russet hair, long hair, amber eyes, hair between eyes, hair over ears, white-tipped tail, elderly, 74 years old, grey hair streaks, rust red coat, cream tunic, long skirt, leather boots, fully clothed, closed mouth, gentle smile, lean build, agile physique, adult woman, feminine build, small breasts, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people, human ears, extra ears",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, village square, stone fountain, autumn trees, timber-framed buildings, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "c87b8599-442e-466d-b951-2f6897bd58b3",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P09_카엘_용인_1_아동_스탠딩",
+      "characterId": "P09",
+      "name": "카엘",
+      "species": "dragon",
+      "gender": "male",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "dragon/male/child/1793189863329_59d61d58.png",
+          "sourceFile": "1793189863329_59d61d58.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1352262,
+          "sha256": "cf62825cc1fde2f6badfda132dbcb0124e3987453c52d6de37c542306774cc66"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "262209d8-001d-40bd-86e3-bdfbfb5acf32",
+          "name": "P09 카엘 / 아동",
+          "prompt": "1boy, dragon person, curved horns, blue scales on cheeks, white hair, swept-back hair, blue eyes, dark blue horns, child, 10 years old, round face, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient temple courtyard, stone columns, mountain scenery, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "2d924d11-fe04-4fb2-a465-b6bc0e64e5fb",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P09_카엘_용인_2_청소년_스탠딩",
+      "characterId": "P09",
+      "name": "카엘",
+      "species": "dragon",
+      "gender": "male",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "dragon/male/teen/1793189863330_36ddf75f.png",
+          "sourceFile": "1793189863330_36ddf75f.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1281242,
+          "sha256": "bf1ed8c135ce589535675490aca6a3628ef93af7bf8de22a5e2b8947ef843053"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "bbfe45e3-40b5-4315-b3ed-7ffcd3120bc1",
+          "name": "P09 카엘 / 청소년",
+          "prompt": "1boy, dragon person, curved horns, blue scales on cheeks, white hair, swept-back hair, blue eyes, dark blue horns, teenager, 16 years old, youthful face, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, adolescent proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient temple courtyard, stone columns, mountain scenery, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "48196320-717c-4463-8e54-c3156e35b2ec",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P09_카엘_용인_3_청년_스탠딩",
+      "characterId": "P09",
+      "name": "카엘",
+      "species": "dragon",
+      "gender": "male",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "dragon/male/young-adult/1793189863333_90d8a89b.png",
+          "sourceFile": "1793189863333_90d8a89b.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1374740,
+          "sha256": "06524277fac6c2d96317d011a4dbd99d83780ea3773a9562f70258aa9e1bb2b7"
+        },
+        {
+          "file": "dragon/male/young-adult/1793191187766_aed0928d.png",
+          "sourceFile": "1793191187766_aed0928d.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1403887,
+          "sha256": "1b50772fac029e43d3615e83d0d41a87df22d67abbc6468fbc4fdd7a491e5598"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "a383a229-ac45-4805-a91f-ef1ae3277112",
+          "name": "P09 카엘 / 청년",
+          "prompt": "1boy, dragon person, curved horns, blue scales on cheeks, white hair, swept-back hair, blue eyes, dark blue horns, adult, 26 years old, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, adult man, masculine build",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient temple courtyard, stone columns, mountain scenery, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "5437ce8d-349d-47c2-a197-7c53cd1ec23c",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P09_카엘_용인_4_중년_스탠딩",
+      "characterId": "P09",
+      "name": "카엘",
+      "species": "dragon",
+      "gender": "male",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "dragon/male/middle-aged/1793192433730_353805d1.png",
+          "sourceFile": "1793192433730_353805d1.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1324347,
+          "sha256": "d9796ee0faa13e9299752176d614009c9f557e11a71265d3930002991431946f"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "340a862c-9fc4-46e0-9b69-cfadc9bf88d0",
+          "name": "P09 카엘 / 중년",
+          "prompt": "1boy, dragon person, curved horns, blue scales on cheeks, white hair, swept-back hair, blue eyes, dark blue horns, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, adult man, masculine build",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient temple courtyard, stone columns, mountain scenery, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "d787579a-6f8a-4e00-ac87-8cc920732b31",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P09_카엘_용인_5_노년_스탠딩",
+      "characterId": "P09",
+      "name": "카엘",
+      "species": "dragon",
+      "gender": "male",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "dragon/male/elder/1793189863337_47dac663.png",
+          "sourceFile": "1793189863337_47dac663.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1262696,
+          "sha256": "946cc31cdcf5dd195c913731409343d47faaec1502bd35b50d0e28025f20d7d8"
+        },
+        {
+          "file": "dragon/male/elder/1793190437471_c746c000.png",
+          "sourceFile": "1793190437471_c746c000.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1325936,
+          "sha256": "8de7d75b293bece5e1eac2b0c3407167d73231941bee95dd822e4c57a326d9d6"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "46856548-7dc3-4aa2-bb43-29458bf16f91",
+          "name": "P09 카엘 / 노년",
+          "prompt": "1boy, dragon person, curved horns, blue scales on cheeks, white hair, swept-back hair, blue eyes, dark blue horns, elderly, 74 years old, grey hair streaks, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, adult man, masculine build, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, ancient temple courtyard, stone columns, mountain scenery, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "ed779c69-90a6-4fc0-96ae-9c6d99cef8c4",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P10_세린_용인_1_아동_스탠딩",
+      "characterId": "P10",
+      "name": "세린",
+      "species": "dragon",
+      "gender": "female",
+      "ageGroup": "child",
+      "images": [
+        {
+          "file": "dragon/female/child/1793189863339_26f0e9ff.png",
+          "sourceFile": "1793189863339_26f0e9ff.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1337974,
+          "sha256": "4382a5d43ee6ce409edbd7c581ec041e0f03c092066ebf61e2719c505ec8fcb4"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "17fed034-a419-466f-b373-8f5c4eb49312",
+          "name": "P10 세린 / 아동",
+          "prompt": "1girl, dragon person, curved horns, blue scales on cheeks, white hair, long hair, half updo, blue eyes, dark blue horns, child, 10 years old, round face, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, child proportions",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, palace garden, stone balustrade, pond, distant pavilion, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "9e8c0da5-c9a2-4d71-997d-15b9a5d11692",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P10_세린_용인_2_청소년_스탠딩",
+      "characterId": "P10",
+      "name": "세린",
+      "species": "dragon",
+      "gender": "female",
+      "ageGroup": "teen",
+      "images": [
+        {
+          "file": "dragon/female/teen/1793189863347_6ba05576.png",
+          "sourceFile": "1793189863347_6ba05576.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1268878,
+          "sha256": "a8a5a10f4b8e8fc3f58e245dd2fe2cde7154ac4295a5c1317569b2c3bec514c3"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "0716fcdc-6f4e-431e-a2dd-633c9991ca1e",
+          "name": "P10 세린 / 청소년",
+          "prompt": "1girl, dragon person, curved horns, blue scales on cheeks, white hair, long hair, half updo, blue eyes, dark blue horns, teenager, 16 years old, youthful face, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, adolescent proportions, small breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, palace garden, stone balustrade, pond, distant pavilion, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "db23aedb-b047-4073-9882-d7a217ae9ff7",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P10_세린_용인_3_청년_스탠딩",
+      "characterId": "P10",
+      "name": "세린",
+      "species": "dragon",
+      "gender": "female",
+      "ageGroup": "young-adult",
+      "images": [
+        {
+          "file": "dragon/female/young-adult/1793189863347_7f9c5dc0.png",
+          "sourceFile": "1793189863347_7f9c5dc0.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1364599,
+          "sha256": "558ad9c7c8422e02a3fdbd77cfbfc1d5f6df8c7a748df2f1ad52760b599be4f1"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "1ca9aaa9-5b72-4bcf-b9d9-fede1eb97b03",
+          "name": "P10 세린 / 청년",
+          "prompt": "1girl, dragon person, curved horns, blue scales on cheeks, white hair, long hair, half updo, blue eyes, dark blue horns, adult, 26 years old, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, adult woman, feminine build, large breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, palace garden, stone balustrade, pond, distant pavilion, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "0116bd57-1d3d-4333-bf9f-6fbf36db3b9c",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P10_세린_용인_4_중년_스탠딩",
+      "characterId": "P10",
+      "name": "세린",
+      "species": "dragon",
+      "gender": "female",
+      "ageGroup": "middle-aged",
+      "images": [
+        {
+          "file": "dragon/female/middle-aged/1793191431265_dfc7bb77.png",
+          "sourceFile": "1793191431265_dfc7bb77.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1323326,
+          "sha256": "dd3170b8a29be7e24f742a3dc815c47bb8b315160f132083f6835628b847f19f"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "11ec4f37-16a5-45f6-a77a-d4d0d47b09c8",
+          "name": "P10 세린 / 중년",
+          "prompt": "1girl, dragon person, curved horns, blue scales on cheeks, white hair, long hair, half updo, blue eyes, dark blue horns, middle-aged, 48 years old, mature face, subtle wrinkles, smile lines, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, adult woman, feminine build, large breasts",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, palace garden, stone balustrade, pond, distant pavilion, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "4c425253-cb09-4bf7-9a16-f3ae9a117da8",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    },
+    {
+      "scene": "P10_세린_용인_5_노년_스탠딩",
+      "characterId": "P10",
+      "name": "세린",
+      "species": "dragon",
+      "gender": "female",
+      "ageGroup": "elder",
+      "images": [
+        {
+          "file": "dragon/female/elder/1793189863361_44b3361b.png",
+          "sourceFile": "1793189863361_44b3361b.png",
+          "width": 832,
+          "height": 1216,
+          "bytes": 1326882,
+          "sha256": "13e7f5771b98f4fd3c53b43aa788f79b27328a26e9e4971e7d2490353d3a197b"
+        }
+      ],
+      "mains": [],
+      "characterPrompts": [
+        {
+          "id": "9d0789ff-09de-4f52-96a3-f8e6ddf8b430",
+          "name": "P10 세린 / 노년",
+          "prompt": "1girl, dragon person, curved horns, blue scales on cheeks, white hair, long hair, half updo, blue eyes, dark blue horns, elderly, 74 years old, grey hair streaks, indigo high-collar robe, silver clasp, boots, fully clothed, closed mouth, gentle smile, tall stature, sturdy build, strong shoulders, adult woman, feminine build, large breasts, gracefully aged face, fine wrinkles, gentle smile lines, refined facial features, well-groomed hair, dignified appearance, kind eyes",
+          "uc": "nsfw, nude, underwear, cleavage, suggestive pose, multiple people",
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "enabled": true
+        }
+      ],
+      "slots": [
+        [
+          {
+            "prompt": "solo, standing, front view, looking at viewer, arms at sides, relaxed posture, centered composition, soft neutral lighting, cowboy shot, head to mid-thigh, outdoors, palace garden, stone balustrade, pond, distant pavilion, daylight, depth of field, blurred background",
+            "characterPrompts": [],
+            "id": "0c0db15a-06c9-4c87-9cde-81080c2e1bda",
+            "enabled": true,
+            "uc": ""
+          }
+        ]
+      ]
+    }
+  ]
+}
