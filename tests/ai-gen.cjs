@@ -68,6 +68,9 @@ function ok(v, label) { assert(v, label); checks.push(label); }
       ok(c2.user.includes('Current Appearance:\n- Hair: silver; long') && c2.user.includes('Change request: make the hair black'), `${width}: revise sends current text and request`);
       ok(c2.user.includes('Youngest daughter'), `${width}: revise sees other sections`);
 
+      ok(await page.locator('#nai-generate').count() === 0, `${width}: NAI tools removed from appearance`);
+      await page.locator('.steps [data-step="basic"]').click();
+      ok(await page.locator('#nai-generate').count() === 1, `${width}: NAI tools on basic step`);
       await page.locator('#nai-generate').click();
       await page.waitForFunction(() => document.querySelector('#nai-tags')?.value === '1girl, black hair, brown eyes');
       const naiCall = await page.evaluate(() => calls.at(-1));

@@ -1,8 +1,8 @@
 //@name persona_forge
 //@api 3.0
-//@version 0.3.6
+//@version 0.3.7
 //@update-url https://raw.githubusercontent.com/canister2668/Risu-persona-forge/main/persona-forge.plugin.js
-//@display-name 페르소나 공방 v0.3.6
+//@display-name 페르소나 공방 v0.3.7
 //@description 성별·시대·나이·종족 같은 토글과 보조 모델로 페르소나를 즉석에서 짜고, 보관함(모듈 로어북)·페르소나 목록·채팅 연결·이미지를 한곳에서 관리합니다.
 
 /*
@@ -22,7 +22,7 @@
  *  - API only, no core patches.
  */
 
-const RELEASE_VERSION = '0.3.6';
+const RELEASE_VERSION = '0.3.7';
 const UPDATE_BASE = 'https://raw.githubusercontent.com/canister2668/Risu-persona-forge/';
 const UPDATE_MANIFEST = UPDATE_BASE + 'main/update/latest.json';
 const newerVersion = (a, b) => { const aa = a.split('.').map(Number), bb = b.split('.').map(Number); for (let i=0;i<3;i++) { if (aa[i] !== bb[i]) return aa[i] > bb[i]; } return false; };
@@ -1136,7 +1136,7 @@ function stepBasic(d) {
  </div>
  <div class="field"><div class="lab"><span>기본 정보 추가 항목</span><span class="hint">한 줄에 하나 · 예: Height: 178cm</span></div><textarea data-f="basic" placeholder="Height: 178cm&#10;Rank: S-Rank">${esc(d.basic)}</textarea></div>
  <div class="field"><div class="lab"><span>메모 <span class="hint">시트 끝 Notes에 그대로</span></span><span class="row">${ui.splitUndo ? '<button type="button" class="btn ghost" data-undo>되돌리기</button>' : ''}<button type="button" class="btn ghost" id="splitextra" ${clean(d.extra) ? '' : 'hidden'}>메모에서 항목 추출</button></span></div><textarea data-f="extra">${esc(d.extra)}</textarea></div>
-</div>`;
+</div>${naiCard(d)}`;
 }
 function stepSection(d, k) {
   const write = modeOf(d, k) === 'write';
@@ -1146,7 +1146,7 @@ function stepSection(d, k) {
  <div class="field"><div class="lab"><span>${write ? '내용' : '결과'}</span>${write ? '' : '<span class="hint">비워 두면 고른 항목으로 시트를 씁니다</span>'}</div>
   <textarea data-f="${k}" class="tall" placeholder="${esc(write ? '- Hair: …; …' : auto || '항목을 고르거나 AI로 다듬으세요')}">${esc(d[k])}</textarea></div>
  ${genBar(k, write ? 'AI로 쓰기' : 'AI로 다듬기')}
-</div>${k === 'look' ? naiCard(d) : ''}`;
+</div>`;
 }
 function stepSkills(d) {
   const write = modeOf(d, 'skills') === 'write', set = setOf(d);
