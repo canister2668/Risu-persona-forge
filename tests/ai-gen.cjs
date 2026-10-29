@@ -72,7 +72,9 @@ function ok(v, label) { assert(v, label); checks.push(label); }
       await page.waitForFunction(() => document.querySelector('#nai-tags')?.value === '1girl, black hair, brown eyes');
       const naiCall = await page.evaluate(() => calls.at(-1));
       ok(naiCall.sys.includes('Exclude artist names, art style, quality'), `${width}: character-only instruction`);
-      ok(JSON.parse(naiCall.user).appearance.includes('black'), `${width}: current appearance supplied`);
+      ok(JSON.parse(naiCall.user).persona.includes('black'), `${width}: current appearance supplied`);
+      const sheet = JSON.parse(naiCall.user).persona;
+      ok(['Archivist', 'cold outside', 'Youngest daughter', 'Heraldry'].every(t => sheet.includes(t)), `${width}: occupation, personality, history and abilities supplied to NAI extraction`);
       await page.locator('#nai-tags').fill('1girl, silver hair');
       await page.evaluate(() => Object.defineProperty(navigator, 'clipboard', { configurable:true, value: {writeText:async text => { window.copiedTags=text; }} }));
       await page.locator('#nai-copy').click();
