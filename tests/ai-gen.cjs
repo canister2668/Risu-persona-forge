@@ -27,6 +27,7 @@ function ok(v, label) { assert(v, label); checks.push(label); }
           getCharacter: async () => null, readImage: async () => null,
           runLLMModel: async ({ messages }) => {
             const [sys, user] = messages.map((m) => m.content); calls.push({ sys, user });
+            if (/NovelAI character tags/.test(sys)) return { result: JSON.stringify({tags: '1girl, black hair, black hair, brown eyes'}) };
             if (/full character sheet/.test(sys)) return { result: JSON.stringify({ name: '', gender: 'female', ageMode: 'input', age: '22', era: 'medieval', job: 'SHOULD NOT APPLY', basic: 'Height: 160cm', look: '- Hair: silver; long', personality: '- Temper: cold outside; soft inside', past: 'Youngest daughter of a fallen house.', skills: '- Heraldry: reads crests' }) };
             if (/You edit one section \("look"\)/.test(sys)) return { result: '{"look": "- Hair: black; long"}' };
             return { result: '{}' };
@@ -67,6 +68,15 @@ function ok(v, label) { assert(v, label); checks.push(label); }
       ok(c2.user.includes('Current Appearance:\n- Hair: silver; long') && c2.user.includes('Change request: make the hair black'), `${width}: revise sends current text and request`);
       ok(c2.user.includes('Youngest daughter'), `${width}: revise sees other sections`);
 
+      await page.locator('#nai-generate').click();
+      await page.waitForFunction(() => document.querySelector('#nai-tags')?.value === '1girl, black hair, brown eyes');
+      const naiCall = await page.evaluate(() => calls.at(-1));
+      ok(naiCall.sys.includes('Exclude artist names, art style, quality'), `${width}: character-only instruction`);
+      ok(JSON.parse(naiCall.user).appearance.includes('black'), `${width}: current appearance supplied`);
+      await page.locator('#nai-tags').fill('1girl, silver hair');
+      await page.evaluate(() => Object.defineProperty(navigator, 'clipboard', { configurable:true, value: {writeText:async text => { window.copiedTags=text; }} }));
+      await page.locator('#nai-copy').click();
+      ok(await page.evaluate(() => copiedTags) === '1girl, silver hair', `${width}: copy edited tags`);
       await page.locator('.steps [data-step="skills"]').click();
       ok(await page.locator('[data-revise="skills"]').count() === 1 && await page.locator('[data-gen="skills"]').count() === 1, `${width}: skills text mode has generate and revise`);
 
