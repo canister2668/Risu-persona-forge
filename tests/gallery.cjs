@@ -42,7 +42,7 @@ function ok(value, label) { assert(value, label); checks.push(label); }
             if (probe.mode === 'corrupt') bytes[bytes.length - 1] ^= 1;
             return new Response(bytes, { status: 200 });
           },
-          saveAsset: async (bytes) => { if (probe.mode === 'savefail') throw new Error('저장 실패'); probe.saves++; const key = 'assets/test-' + probe.saves + '.webp'; assets.set(key, bytes); return key; },
+          saveAsset: async (bytes) => { if (probe.mode === 'savefail') throw new Error('저장 실패'); probe.saves++; const key = 'assets/test-' + probe.saves + '.webp'; /* like the real v3 bridge: the buffer is transferred and left empty on the caller side */ assets.set(key, structuredClone(bytes, { transfer: [bytes.buffer] })); return key; },
           readImage: async (key) => assets.get(key),
         };
       });

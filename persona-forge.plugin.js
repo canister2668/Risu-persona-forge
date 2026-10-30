@@ -114,7 +114,8 @@ function loadThumbs() {
       bytes = new Uint8Array(await res.arrayBuffer());
       if (!(await check(bytes))) throw new Error('미리보기 파일이 목록과 다릅니다. 플러그인을 업데이트해 주세요.');
       try {
-        const path = await Risuai.saveAsset(bytes);
+        // saveAsset hands its buffer to the host and leaves it empty here, so give it a copy
+        const path = await Risuai.saveAsset(bytes.slice());
         if (path && settings) { settings.thumbAsset = { sha256: T.sha256, path }; await saveSettings(); }
       } catch (e) {}
     }
@@ -1713,7 +1714,7 @@ async function ensurePortrait(p) {
   const current = () => portraitMode(p) === 'auto' && p.portraitId === id && matchPortrait(p)?.id === id;
   const bytes = await fetchPortrait(selected);
   if (!current()) throw new Error('이미지 선택이 바뀌었습니다. 다시 저장해 주세요.');
-  const path = await Risuai.saveAsset(bytes);
+  const path = await Risuai.saveAsset(bytes.slice()); // the cached download stays usable
   if (!path) throw new Error('이미지를 저장하지 못했습니다. 다시 시도해 주세요.');
   if (!current()) throw new Error('이미지 선택이 바뀌었습니다. 다시 저장해 주세요.');
   p.icon = path;
@@ -1774,7 +1775,7 @@ async function openPortraitLibrary() {
         const bytes = await fetchPortrait(portrait);
         if (!current()) return;
         status.textContent = 'Risu 에셋으로 저장하고 있습니다…';
-        const path = await Risuai.saveAsset(bytes);
+        const path = await Risuai.saveAsset(bytes.slice()); // the cached download stays usable
         if (!path) throw new Error('이미지를 저장하지 못했습니다. 다시 시도해 주세요.');
         if (!current()) return;
         const url = await imageUrl(path);
