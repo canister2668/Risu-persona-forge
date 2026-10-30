@@ -21,7 +21,7 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       await page.route('http://localhost/**', (r) => r.fulfill({ contentType: 'text/html', body: '<!doctype html><html lang="ko"><body></body></html>' }));
       await page.route('https://raw.githubusercontent.com/**', (r) => {
         const file = new URL(r.request().url()).pathname.split('/').pop();
-        assert(manifest.items.some((x) => x.file === file));
+        assert(manifest.items.some((x) => x.file === file) || file === manifest.thumbs.file);
         return r.fulfill({ contentType: 'image/webp', body: fs.readFileSync(path.join(ROOT, 'templates/personas', file)) });
       });
       await page.goto('http://localhost/');
@@ -48,6 +48,9 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       });
       await page.addScriptTag({ content: source });
       await page.evaluate(() => __personaForge.openForge());
+      // thumbnails come from one sprite on demand; load it before counting portrait downloads and asset saves
+      ok(await page.evaluate(() => __personaForge.loadThumbs()) === true, `${width}: thumbnail sprite loads and verifies`);
+      await page.evaluate(() => { probe.downloads = 0; probe.saves = 0; probe.writes = 0; });
       await page.locator('[data-f="name"]').fill('기존 이름');
       await page.locator('[data-f="job"]').fill('기존 직업');
       const open = async () => { await page.locator('#ava').click(); await page.locator('#iconlibrary').click(); await page.locator('.portrait-sheet').waitFor(); };
@@ -139,7 +142,7 @@ function ok(value, label) { assert(value, label); checks.push(label); }
       ok((await page.locator('#portrait-auto-status').textContent()).includes('세린 · 노년'), `${width}: species changes auto portrait`);
       ok(await page.evaluate(() => probe.downloads) === beforeAuto, `${width}: auto preview needs no download`);
       await page.locator('#tovault').click();
-      await page.waitForFunction(() => [...testStorage.values()].some(x => Array.isArray(x) && x.some(p => p.portraitMode === 'auto' && p.portraitId === 'belladonna-p10-elder-1' && p.icon)));
+      await page.waitForFunction(() => [...testStorage.values()].flatMap(x => Array.isArray(x) ? x : [x]).some(p => p && p.portraitMode === 'auto' && p.portraitId === 'belladonna-p10-elder-1' && p.icon));
       ok(true, `${width}: saving resolves auto image to persistent asset`);
       await page.locator('[data-seg="gender"] [data-v="male"]').click();
       ok((await page.locator('#portrait-auto-status').textContent()).includes('카엘 · 노년'), `${width}: auto mode remains active after save`);

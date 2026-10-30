@@ -1,5 +1,4 @@
-"""Build whole-frame 832x1216 WebPs and embedded gallery thumbnails. No retouching."""
-import base64
+"""Build whole-frame 832x1216 WebPs and one gallery thumbnail sprite (loaded on demand). No retouching."""
 import hashlib
 import io
 import json
@@ -27,7 +26,8 @@ def main():
     assert catalog['baseUrl'].startswith('https://raw.githubusercontent.com/') and catalog['baseUrl'].endswith('/')
     original = PLUGIN.read_bytes()
     DEST.mkdir(parents=True, exist_ok=True)
-    items, manifest, seen = [], [], set()
+    items, manifest, seen, thumbs = [], [], set(), []
+    TW, TH, COLS = 208, 304, 10
     for entry in catalog['items']:
         slug = entry['id']
         assert re.fullmatch('[a-z0-9]+(?:-[a-z0-9]+)*', slug) and slug not in seen
@@ -44,22 +44,35 @@ def main():
         digest = hashlib.sha256(payload).hexdigest()
         filename = f'{slug}-{digest[:12]}.webp'
         atomic(DEST / filename, payload)
-        thumb = io.BytesIO()
-        portrait.resize((208, 304), Image.Resampling.LANCZOS).save(thumb, format='WEBP', quality=78, method=6)
-        item = dict(entry, file=filename, width=832, height=1216, bytes=len(payload), sha256=digest)
+        thumbs.append(portrait.resize((TW, TH), Image.Resampling.LANCZOS))
+        item = dict(entry, file=filename, width=832, height=1216, bytes=len(payload), sha256=digest, cell=len(thumbs) - 1)
         manifest.append(dict(item, source=src.relative_to(ROOT).as_posix(), nativeWidth=native[0], nativeHeight=native[1], sourceSha256=hashlib.sha256(source_bytes).hexdigest()))
-        items.append(dict(item, thumb='data:image/webp;base64,' + base64.b64encode(thumb.getvalue()).decode()))
+        items.append(item)
+    rows = (len(thumbs) + COLS - 1) // COLS
+    sheet = Image.new('RGB', (TW * COLS, TH * rows), (0, 0, 0))
+    for i, t in enumerate(thumbs):
+        sheet.paste(t, ((i % COLS) * TW, (i // COLS) * TH))
+    buf = io.BytesIO()
+    sheet.save(buf, format='WEBP', quality=78, method=6)
+    sprite = buf.getvalue()
+    sprite_digest = hashlib.sha256(sprite).hexdigest()
+    sprite_name = f'thumbs-{sprite_digest[:12]}.webp'
+    for old in DEST.glob('thumbs-*.webp'):
+        if old.name != sprite_name:
+            old.unlink()
+    atomic(DEST / sprite_name, sprite)
+    sprite_meta = dict(file=sprite_name, bytes=len(sprite), sha256=sprite_digest, cols=COLS, w=TW, h=TH, width=TW * COLS, height=TH * rows)
     start = '// BEGIN GENERATED PORTRAIT CATALOG (scripts/build-portraits.py)'
     end = '// END GENERATED PORTRAIT CATALOG'
     text = original.decode()
     assert text.count(start) == text.count(end) == 1
     before, rest = text.split(start, 1)
     _, after = rest.split(end, 1)
-    block = start + '\nconst PORTRAIT_BASE = ' + json.dumps(catalog['baseUrl']) + ';\nconst PORTRAITS = ' + json.dumps(items, ensure_ascii=False, separators=(',', ':')) + ';\n' + end
+    block = start + '\nconst PORTRAIT_BASE = ' + json.dumps(catalog['baseUrl']) + ';\nconst PORTRAIT_THUMBS = ' + json.dumps(sprite_meta) + ';\nconst PORTRAITS = ' + json.dumps(items, ensure_ascii=False, separators=(',', ':')) + ';\n' + end
     assert PLUGIN.read_bytes() == original, 'Plugin changed while building; retry with current file'
     atomic(PLUGIN, (before + block + after).encode())
-    atomic(ROOT / 'templates/personas/manifest.json', json.dumps({'schema': 1, 'width': 832, 'height': 1216, 'baseUrl': catalog['baseUrl'], 'items': manifest}, ensure_ascii=False, indent=2).encode())
-    print(json.dumps({'portraits': len(items), 'dimensions': [832, 1216], 'downloadBytes': sum(x['bytes'] for x in items), 'pluginBytes': PLUGIN.stat().st_size}))
+    atomic(ROOT / 'templates/personas/manifest.json', json.dumps({'schema': 1, 'width': 832, 'height': 1216, 'baseUrl': catalog['baseUrl'], 'thumbs': sprite_meta, 'items': manifest}, ensure_ascii=False, indent=2).encode())
+    print(json.dumps({'portraits': len(items), 'dimensions': [832, 1216], 'downloadBytes': sum(x['bytes'] for x in items), 'thumbSprite': sprite_meta, 'pluginBytes': PLUGIN.stat().st_size}))
 
 
 if __name__ == '__main__':
